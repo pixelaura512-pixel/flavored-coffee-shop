@@ -983,3 +983,31 @@ body > .max-w-\[1240px\] {
     transform: rotate(-45deg) !important;
   }
 }
+
+/* Make mobile sticky navbar and navigation easier to read */
+@media (max-width: 640px) {
+  #site-header.viewport-floating-nav {
+    padding: 12px 14px !important;
+  }
+
+  #site-header.viewport-floating-nav .font-serif {
+    font-size: 1.55rem !important;
+  }
+
+  #site-header.viewport-floating-nav #nav-shop-cta {
+    padding: 10px 14px !important;
+    font-size: 0.78rem !important;
+  }
+
+  #site-header.viewport-floating-nav #mobile-nav-toggle {
+    width: 44px !important;
+    height: 44px !important;
+    flex: 0 0 44px !important;
+  }
+
+  #mobile-nav-panel > button,
+  #mobile-nav-panel.is-open > button {
+    padding: 17px 18px !important;
+    font-size: 1.05rem !important;
+  }
+}
