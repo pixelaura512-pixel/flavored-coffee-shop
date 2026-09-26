@@ -1,0 +1,985 @@
+/* Shared styles from the main site and imported premium homepage. */
+body {
+      background: radial-gradient(circle at 10% 20%, #F5ECE3 0%, #E7D8CD 40%, #DAC7B7 80%, #CDAF9A 100%);
+      min-height: 100vh;
+      color: #2D1A12;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Ambient atmospheric blurred coffee background blobs */
+    .bg-ambience-1 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196, 154, 124, 0.35) 0%, rgba(205, 175, 154, 0) 70%);
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .bg-ambience-2 {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(160, 110, 80, 0.22) 0%, rgba(218, 199, 183, 0) 70%);
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+.glass-card {
+      background: rgba(255, 255, 255, 0.42);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+    }
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+    .phone-glass {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 25px 50px -12px rgba(45, 26, 18, 0.15);
+    }
+
+    /* Luxury Smooth Transition System */
+    .view-container {
+      transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1), transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .view-active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .view-hidden-left {
+      opacity: 0;
+      transform: translateY(-16px) scale(0.98);
+      pointer-events: none;
+      display: none;
+    }
+
+    .view-hidden-right {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+      pointer-events: none;
+      display: none;
+    }
+
+    /* Staggered items cascade animation for menu cards */
+    .cascade-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1), transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .view-active .cascade-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .view-active .cascade-delay-1 { transition-delay: 50ms; }
+    .view-active .cascade-delay-2 { transition-delay: 100ms; }
+    .view-active .cascade-delay-3 { transition-delay: 150ms; }
+    .view-active .cascade-delay-4 { transition-delay: 200ms; }
+    .view-active .cascade-delay-5 { transition-delay: 250ms; }
+    .view-active .cascade-delay-6 { transition-delay: 300ms; }
+    .view-active .cascade-delay-7 { transition-delay: 350ms; }
+    .view-active .cascade-delay-8 { transition-delay: 400ms; }
+    .view-active .cascade-delay-9 { transition-delay: 450ms; }
+    .view-active .cascade-delay-10 { transition-delay: 500ms; }
+
+body {
+      background: radial-gradient(circle at 10% 20%, #F5ECE3 0%, #E7D8CD 40%, #DAC7B7 80%, #CDAF9A 100%);
+      min-height: 100vh;
+      color: #2D1A12;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      perspective: 1200px;
+    }
+
+    /* Ambient atmospheric blurred coffee background blobs */
+    .bg-ambience-1 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196, 154, 124, 0.35) 0%, rgba(205, 175, 154, 0) 70%);
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .bg-ambience-2 {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(160, 110, 80, 0.22) 0%, rgba(218, 199, 183, 0) 70%);
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* 3D and Micro-interactions */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.52);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.3s ease;
+      will-change: transform;
+    }
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(circle at var(--card-x, 50%) var(--card-y, 50%), rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 65%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      z-index: 1;
+    }
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+    .phone-glass {
+      background: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 25px 50px -12px rgba(45, 26, 18, 0.15);
+      transform-style: preserve-3d;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+
+    /* Keyframe Animations */
+    @keyframes floatLevitate {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-8px) rotate(1.5deg);
+      }
+    }
+    .animate-float-levitate {
+      animation: floatLevitate 5s ease-in-out infinite;
+    }
+    .animate-float-delayed {
+      animation: floatLevitate 6s ease-in-out infinite 2s;
+    }
+
+    @keyframes steamDrift {
+      0% {
+        opacity: 0;
+        transform: translateY(4px) scaleX(0.7) scaleY(0.7) skewX(0deg);
+      }
+      40% {
+        opacity: 0.55;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-40px) scaleX(1.6) scaleY(1.4) skewX(-10deg);
+      }
+    }
+    .steam-wisp {
+      position: absolute;
+      pointer-events: none;
+      filter: blur(6px);
+      border-radius: 50% 50% 30% 30%;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%);
+      animation: steamDrift 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    .steam-wisp-2 {
+      animation-delay: 1.2s;
+      animation-duration: 4.2s;
+    }
+    .steam-wisp-3 {
+      animation-delay: 2.1s;
+      animation-duration: 3.8s;
+    }
+
+    @keyframes beanGentleBob {
+      0%, 100% { transform: translateY(0px) rotate(var(--bean-base-rot, 0deg)); }
+      50% { transform: translateY(-7px) rotate(calc(var(--bean-base-rot, 0deg) + 6deg)); }
+    }
+    .floating-bean {
+      animation: beanGentleBob 6s ease-in-out infinite;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Scroll Reveals */
+    .reveal-elem {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-elem.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Interactive 3D hero stage */
+    #hero-cup-stage {
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    #interactive-3d-cup {
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.15s ease-out;
+    }
+
+/* ---- Refined glass treatment and interaction cleanup ---- */
+html { scroll-behavior: smooth; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: transparent !important;
+}
+
+/* Keep the background above the page canvas, while all website content stays above it. */
+#site-background { z-index: 0 !important; }
+body > .max-w-\[1240px\] { position: relative; z-index: 1; }
+
+#site-shell {
+  background: rgba(255, 251, 246, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.48) !important;
+  box-shadow: 0 24px 64px rgba(48, 26, 16, 0.16) !important;
+  backdrop-filter: blur(15px) saturate(118%) !important;
+  -webkit-backdrop-filter: blur(15px) saturate(118%) !important;
+}
+
+#site-background { background: #ead8c2; }
+#site-background > div:first-child {
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Keep all panels translucent without the distracting moving light reflection. */
+.glass-card,
+.glass-pill,
+.phone-glass {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.62) !important;
+  backdrop-filter: blur(17px) saturate(118%) !important;
+  -webkit-backdrop-filter: blur(17px) saturate(118%) !important;
+}
+
+.glass-card::before,
+.glass-card:hover::before {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+/* The menu keeps only one quiet lift, with no shine, zoom, or mouse-tilt. */
+#view-menu .cascade-item {
+  transform: translateY(0) !important;
+  transform-style: flat !important;
+  transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 12px 28px rgba(54, 29, 17, 0.11) !important;
+}
+
+#view-menu .cascade-item:hover {
+  transform: translateY(-4px) !important;
+  background: rgba(255, 255, 255, 0.26) !important;
+  box-shadow: 0 16px 32px rgba(54, 29, 17, 0.14) !important;
+}
+
+#view-menu .cascade-item > div:first-child,
+#view-menu .cascade-item img,
+#view-menu .cascade-item:hover img {
+  transform: none !important;
+  filter: none !important;
+}
+
+#view-menu .cascade-item button:hover,
+#view-menu .cascade-item a:hover {
+  transform: none !important;
+}
+
+/* Sticky navigation: it settles into a compact glass bar as the user scrolls. */
+#site-header {
+  position: sticky;
+  top: 14px;
+  transition: padding 220ms ease, background-color 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+#site-header.is-scrolled {
+  padding: 13px 16px;
+  margin: 0 -16px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 20px;
+  background: rgba(245, 236, 227, 0.58);
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  box-shadow: 0 12px 28px rgba(52, 30, 18, 0.13);
+}
+
+/* Product order modal: open in the centre of the current screen. */
+#product-modal-container {
+  z-index: 100 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow-y: auto;
+  padding: 16px !important;
+}
+
+#modal-card {
+  margin: 0 auto;
+  background: rgba(255, 252, 247, 0.92) !important;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Compact mobile navigation panel, opened by the three-line button. */
+#mobile-nav-panel {
+  position: fixed;
+  z-index: 60;
+  top: 76px;
+  right: 20px;
+  width: min(290px, calc(100vw - 32px));
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  margin-top: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 18px 42px rgba(45, 26, 18, 0.16);
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  transition: grid-template-rows 220ms ease, opacity 180ms ease;
+}
+
+#mobile-nav-panel::before {
+  content: '';
+  min-height: 0;
+}
+
+#mobile-nav-panel.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#mobile-nav-panel > button {
+  display: none;
+}
+
+#mobile-nav-panel.is-open > button {
+  display: block;
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #2D1A12;
+  background: rgba(255, 252, 247, 0.70);
+  border-bottom: 1px solid rgba(104, 72, 54, 0.12);
+}
+
+#mobile-nav-panel.is-open > button:first-child { border-radius: 16px 16px 0 0; }
+#mobile-nav-panel.is-open > button:last-child { border-radius: 0 0 16px 16px; border-bottom: 0; }
+#mobile-nav-panel.is-open > button:hover { background: rgba(255, 255, 255, 0.96); }
+
+@media (max-width: 639px) {
+  #site-shell {
+    padding: 16px !important;
+    border-radius: 28px !important;
+  }
+
+  #site-header { top: 8px; padding-bottom: 18px; }
+  #site-header.is-scrolled { padding: 10px 12px; margin: 0 -4px; border-radius: 16px; }
+  #site-header .font-serif { font-size: 1.35rem !important; }
+  #site-header { gap: 8px; }
+  #brand-tagline { display: none; }
+  #mobile-nav-toggle { order: 2; width: 38px; height: 38px; flex: 0 0 38px; }
+  #nav-shop-cta { order: 1; white-space: nowrap; padding: 9px 12px; font-size: 0.68rem; line-height: 1; flex: 0 0 auto; }
+
+  /* Two compact cards per row: more menu items stay visible on a phone. */
+  #view-menu .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  #view-menu .cascade-item {
+    padding: 12px !important;
+    border-radius: 22px !important;
+  }
+
+  #view-menu .cascade-item > div:first-child {
+    width: 104px !important;
+    height: 104px !important;
+    padding: 5px !important;
+    margin-bottom: 12px !important;
+  }
+
+  #view-menu .cascade-item h3 { font-size: 1.05rem !important; line-height: 1.15 !important; }
+  #view-menu .cascade-item p { font-size: 0.62rem !important; line-height: 1.35 !important; margin-bottom: 12px !important; }
+  #view-menu .cascade-item .pt-4 { padding-top: 10px !important; }
+  #view-menu .cascade-item button { padding: 7px 9px !important; font-size: 0.63rem !important; gap: 3px !important; }
+  #view-menu .cascade-item .text-base { font-size: 0.82rem !important; }
+  #site-background > div:first-child { background-position: 58% top; }
+  #mobile-nav-panel { top: 66px; right: 16px; }
+}
+
+@media (min-width: 768px) and (max-width: 1120px) {
+  #site-shell { padding: 34px !important; }
+  #site-header { gap: 16px; }
+  #site-header nav { gap: 16px !important; white-space: nowrap; font-size: 12px !important; }
+  #site-header nav button { white-space: nowrap; }
+  #site-header > div:last-child > button:last-child { padding-left: 16px; padding-right: 16px; white-space: nowrap; }
+}
+
+/* Tablet uses the same compact premium hamburger navigation instead of cramped links. */
+@media (min-width: 768px) and (max-width: 900px) {
+  #site-header > nav { display: none !important; }
+  #mobile-nav-toggle { display: flex !important; order: 2; }
+  #nav-shop-cta { order: 1; white-space: nowrap; padding: 10px 15px; }
+  #mobile-nav-panel { display: grid !important; top: 82px; right: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* Fix: order popup must always open in the current screen center */
+body {
+  perspective: none !important;
+  transform: none !important;
+}
+
+#product-modal-container {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+}
+
+#modal-card {
+  width: min(100%, 680px) !important;
+  max-height: calc(100dvh - 32px) !important;
+  overflow-y: auto !important;
+  margin: 0 !important;
+}
+/* Responsive centered order popup */
+#product-modal-container {
+  padding: clamp(12px, 3vw, 28px) !important;
+}
+
+#modal-card {
+  width: min(680px, calc(100vw - 32px)) !important;
+  max-height: calc(100dvh - 32px) !important;
+  overflow-y: auto !important;
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  #modal-card {
+    width: min(620px, calc(100vw - 40px)) !important;
+    padding: 26px !important;
+    border-radius: 30px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  #product-modal-container {
+    padding: 12px !important;
+  }
+
+  #modal-card {
+    width: 100% !important;
+    max-height: calc(100dvh - 24px) !important;
+    padding: 20px !important;
+    gap: 16px !important;
+    border-radius: 26px !important;
+  }
+
+  /* Product image becomes smaller on mobile */
+  #modal-card .w-36.h-36 {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  #modal-card h3 {
+    font-size: 1.6rem !important;
+  }
+
+  /* Quantity and order button fit perfectly */
+  #modal-card > .flex.items-center.justify-between.pt-2 {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+
+  #modal-add-btn {
+    width: 100% !important;
+    flex-basis: 100% !important;
+    margin-left: 0 !important;
+    padding: 13px 18px !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  #modal-card {
+    padding: 16px !important;
+    border-radius: 22px !important;
+  }
+
+  #modal-card .w-36.h-36 {
+    width: 86px !important;
+    height: 86px !important;
+  }
+
+  #modal-card h3 {
+    font-size: 1.35rem !important;
+  }
+}
+
+
+/* Final responsive fixes for order popup and tablet menu cards */
+#modal-card,
+#modal-card * {
+  min-width: 0;
+}
+
+/* Mobile: smaller, centered and clean order popup */
+@media (max-width: 640px) {
+  #product-modal-container {
+    padding: 14px !important;
+  }
+
+  #modal-card {
+    width: min(92vw, 390px) !important;
+    max-height: 82dvh !important;
+    padding: 16px !important;
+    gap: 12px !important;
+    border-radius: 24px !important;
+  }
+
+  #modal-card .w-36.h-36 {
+    width: 82px !important;
+    height: 82px !important;
+  }
+
+  #modal-title {
+    font-size: 1.45rem !important;
+    line-height: 1.1 !important;
+  }
+
+  #modal-desc {
+    font-size: 0.72rem !important;
+    line-height: 1.4 !important;
+  }
+
+  #modal-size-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  #modal-size-options button {
+    min-width: 0 !important;
+    padding: 9px 8px !important;
+    font-size: 0.67rem !important;
+  }
+
+  #modal-size-options button span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #modal-add-btn {
+    min-height: 46px !important;
+    padding: 11px 14px !important;
+    font-size: 0.78rem !important;
+  }
+}
+
+/* Tablet: make menu item images and plates smaller */
+@media (min-width: 641px) and (max-width: 1024px) {
+  #view-menu .cascade-item {
+    padding: 16px !important;
+  }
+
+  #view-menu .cascade-item > div:first-child {
+    width: 118px !important;
+    height: 118px !important;
+    padding: 5px !important;
+    margin-bottom: 12px !important;
+  }
+
+  #view-menu .cascade-item > div:first-child img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  #view-menu .cascade-item h3 {
+    font-size: 1.1rem !important;
+  }
+
+  #view-menu .cascade-item p {
+    font-size: 0.7rem !important;
+    line-height: 1.35 !important;
+  }
+}
+
+/* Final compact modal + responsive navigation pass */
+#mobile-nav-panel {
+  transform-origin: top right;
+  max-height: calc(100dvh - 92px);
+  overflow-y: auto;
+}
+
+#mobile-nav-toggle {
+  position: relative;
+  z-index: 61;
+  transition: transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+#mobile-nav-toggle span {
+  transition: transform 220ms ease, opacity 180ms ease;
+}
+
+#mobile-nav-toggle.is-open {
+  background: rgba(255, 255, 255, 0.66) !important;
+  box-shadow: 0 10px 24px rgba(48, 26, 16, 0.14);
+}
+
+#mobile-nav-toggle.is-open span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+#mobile-nav-toggle.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+#mobile-nav-toggle.is-open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+@media (max-width: 1023px) {
+  /* Center and strengthen the Home hero on mobile and tablet. */
+  #view-home #home > .grid > div:first-child {
+    align-items: center !important;
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #view-home #home > .grid > div:first-child > .space-y-2 {
+    width: 100%;
+  }
+
+  #view-home #home h1 {
+    font-size: clamp(3.15rem, 10vw, 4.75rem) !important;
+  }
+
+  #view-home #home h1 + p {
+    font-size: clamp(1.85rem, 6.5vw, 3.3rem) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* A deliberately compact, scroll-safe product sheet for phones. */
+  #product-modal-container {
+    padding: 14px !important;
+  }
+
+  #modal-card {
+    width: calc(100vw - 28px) !important;
+    max-width: 340px !important;
+    max-height: min(510px, calc(100dvh - 28px)) !important;
+    padding: 14px !important;
+    gap: 10px !important;
+    border-radius: 22px !important;
+  }
+
+  #modal-card .flex.flex-col.sm\\:flex-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  #modal-card .w-36.h-36 {
+    width: 76px !important;
+    height: 76px !important;
+    padding: 4px !important;
+  }
+
+  #modal-category { font-size: 0.55rem !important; padding: 5px 8px !important; }
+  #modal-title { font-size: 1.35rem !important; }
+  #modal-desc { font-size: 0.67rem !important; line-height: 1.35 !important; }
+  #modal-base-price { font-size: 0.95rem !important; }
+
+  #modal-size-options { gap: 6px !important; }
+  #modal-size-options button { padding: 8px 7px !important; font-size: 0.62rem !important; }
+  #modal-size-options button span:last-child { display: none; }
+
+  #modal-card > .flex.items-center.justify-between.pt-2 {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    padding-top: 8px !important;
+  }
+
+  #modal-card > .flex.items-center.justify-between.pt-2 > div {
+    align-self: center;
+  }
+
+  #modal-add-btn {
+    width: 100% !important;
+    min-height: 42px !important;
+    margin-left: 0 !important;
+    padding: 10px 12px !important;
+    font-size: 0.72rem !important;
+  }
+}
+
+/* STEP 1 — Full responsive background + wide transparent frame */
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow-x: clip;
+}
+
+/* Background hamesha poori screen ko cover karega */
+#site-background {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100dvh !important;
+  overflow: hidden !important;
+}
+
+#site-background > div {
+  width: 100% !important;
+  height: 100% !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Transparent main frame: large screen par wide, small screen par automatically compact */
+body > .max-w-\[1240px\] {
+  width: calc(100% - clamp(24px, 4vw, 80px)) !important;
+  max-width: none !important;
+  margin: clamp(12px, 2vw, 36px) auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Glass frame bhi parent ke according smoothly resize hoga */
+#site-shell {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* STEP 2 — Premium sticky navbar for desktop and laptop */
+@media (min-width: 901px) {
+  #site-header {
+    position: sticky !important;
+    top: 16px !important;
+    z-index: 90 !important;
+    transform: translateY(0);
+    will-change: transform;
+  }
+
+  #site-header.is-scrolled {
+    animation: navbarSlideDown 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+    background: rgba(248, 240, 232, 0.72) !important;
+    border-color: rgba(255, 255, 255, 0.72) !important;
+    box-shadow: 0 16px 38px rgba(49, 28, 18, 0.18) !important;
+  }
+}
+
+@keyframes navbarSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* STEP 3 — Viewport-level floating navbar */
+#site-header.viewport-floating-nav {
+  position: fixed !important;
+  top: 12px !important;
+  z-index: 9998 !important;
+  margin: 0 !important;
+  padding: 13px 18px !important;
+  border: 1px solid rgba(255, 255, 255, 0.68) !important;
+  border-radius: 22px !important;
+  background: rgba(246, 237, 228, 0.76) !important;
+  box-shadow: 0 18px 42px rgba(49, 28, 18, 0.20) !important;
+  backdrop-filter: blur(20px) saturate(125%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(125%) !important;
+  animation: floatingNavbarIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes floatingNavbarIn {
+  from {
+    opacity: 0;
+    transform: translateY(-22px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  #site-header.viewport-floating-nav {
+    top: 8px !important;
+    padding: 10px 12px !important;
+    border-radius: 18px !important;
+  }
+}
+/* STEP 4 — Centered premium mobile/tablet navigation */
+@media (max-width: 900px) {
+  #mobile-nav-panel {
+    position: fixed !important;
+    top: calc(32% - clamp(24px, 4vh, 38px)) !important;
+    left: 50% !important;
+    right: auto !important;
+    z-index: 9997 !important;
+
+    width: min(320px, calc(100vw - 48px)) !important;
+    max-height: none !important;
+    padding: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    overflow: visible !important;
+    border: 1px solid rgba(255, 255, 255, 0.38) !important;
+    border-radius: 24px !important;
+    background: rgba(51, 31, 21, 0.84) !important;
+    box-shadow:
+      0 0 0 100vmax rgba(25, 14, 9, 0.42),
+      0 24px 60px rgba(20, 10, 6, 0.32) !important;
+    backdrop-filter: blur(22px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(120%) !important;
+
+    transform: translate(-50%, -46%) scale(0.94) !important;
+    transition:
+      opacity 220ms ease,
+      transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 220ms ease !important;
+  }
+
+  #mobile-nav-panel.is-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+  }
+
+  #mobile-nav-panel > button,
+  #mobile-nav-panel.is-open > button {
+    display: block !important;
+    width: 100% !important;
+    padding: 14px 16px !important;
+    text-align: center !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    color: rgba(255, 250, 244, 0.95) !important;
+    background: rgba(255, 255, 255, 0.09) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    border-radius: 15px !important;
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      background 180ms ease,
+      transform 260ms ease,
+      opacity 260ms ease !important;
+  }
+
+  #mobile-nav-panel.is-open > button {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  #mobile-nav-panel.is-open > button:nth-child(1) { transition-delay: 40ms !important; }
+  #mobile-nav-panel.is-open > button:nth-child(2) { transition-delay: 80ms !important; }
+  #mobile-nav-panel.is-open > button:nth-child(3) { transition-delay: 120ms !important; }
+  #mobile-nav-panel.is-open > button:nth-child(4) { transition-delay: 160ms !important; }
+
+  #mobile-nav-panel > button:hover,
+  #mobile-nav-panel > button:active {
+    background: rgba(255, 255, 255, 0.18) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* Perfect hamburger to X / cancel icon */
+  #mobile-nav-toggle {
+    position: relative !important;
+    overflow: hidden !important;
+    gap: 0 !important;
+  }
+
+  #mobile-nav-toggle span {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 17px !important;
+    height: 2px !important;
+    margin-left: -8.5px !important;
+    margin-top: 0 !important;
+    border-radius: 999px !important;
+    transition:
+      transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+      margin 260ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 180ms ease !important;
+  }
+
+  #mobile-nav-toggle span:nth-child(1) { margin-top: -6px !important; }
+  #mobile-nav-toggle span:nth-child(3) { margin-top: 6px !important; }
+
+  #mobile-nav-toggle.is-open span:nth-child(1) {
+    margin-top: 0 !important;
+    transform: rotate(45deg) !important;
+  }
+
+  #mobile-nav-toggle.is-open span:nth-child(2) {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+
+  #mobile-nav-toggle.is-open span:nth-child(3) {
+    margin-top: 0 !important;
+    transform: rotate(-45deg) !important;
+  }
+}

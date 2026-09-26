@@ -1,0 +1,1113 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Flavored Coffee - Wake up to something special</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              espresso: '#22110c',
+              dark: '#2A170F',
+              coffee: '#3b2216',
+              mocha: '#5C3826',
+              caramel: '#8A583A',
+              sand: '#E6D7CC',
+              cream: '#F4ECE4',
+              softbg: '#E9DDD4',
+              cardbg: 'rgba(255, 255, 255, 0.45)',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'glass': '0 20px 40px -15px rgba(59, 34, 22, 0.08), 0 0 1px 1px rgba(255, 255, 255, 0.6)',
+            'pill': '0 10px 25px -5px rgba(34, 17, 12, 0.35)',
+            'coffee': '0 30px 60px -15px rgba(60, 30, 15, 0.28)',
+          }
+        }
+      }
+    }
+  </script>
+
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="relative overflow-x-hidden antialiased selection:bg-brand-coffee selection:text-white">
+<div id="site-background" aria-hidden="true" class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('./assets/coffee-background-v2.png');"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-[#2D1A12]/10"></div>
+</div>
+<!-- Atmospheric ambient background orbs -->
+<div class="bg-ambience-1 -top-20 -right-20"></div>
+<div class="bg-ambience-2 top-[35%] -left-32"></div>
+<div class="bg-ambience-1 top-[70%] right-0"></div>
+<!-- Primary Wrapper Centered with Rounded Frame Container -->
+<div class="max-w-[1240px] mx-auto my-0 px-4 sm:px-8">
+<div id="site-shell" class="relative backdrop-blur-3xl rounded-[40px] sm:rounded-[48px] border border-white/60 shadow-2xl p-6 sm:p-12 lg:p-16 overflow-visible bg-transparent">
+<!-- BEGIN: MainHeader -->
+<header id="site-header" class="relative z-30 flex items-center justify-between pb-10 border-b border-stone-300/40" data-purpose="site-navigation">
+<!-- Logo & Tagline -->
+<a aria-label="Go to Home" class="flex flex-col group cursor-pointer" onclick="navigateTo('home')" role="button">
+<div class="flex items-center gap-2">
+<span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brand-espresso">Flavored</span>
+<!-- Coffee Cup SVG Icon -->
+<svg class="w-5 h-5 text-brand-dark transition-transform group-hover:rotate-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+<path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+<line x1="6" x2="6" y1="2" y2="4"></line>
+<line x1="10" x2="10" y1="2" y2="4"></line>
+<line x1="14" x2="14" y1="2" y2="4"></line>
+</svg>
+</div>
+<span class="text-xs text-brand-mocha/70 tracking-wide font-medium mt-0.5" id="brand-tagline">Wake up to something special.</span>
+</a>
+<!-- Navigation Menu Links -->
+<nav class="hidden md:flex items-center space-x-9 text-[14px] font-medium text-brand-espresso/80">
+<button class="relative transition-colors duration-300 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-espresso after:transition-all after:duration-300 text-brand-espresso/70 font-medium after:w-0" id="nav-btn-home" onclick="navigateTo('home')">
+  Home
+</button>
+<button class="relative hover:text-brand-espresso transition-colors duration-300 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-espresso after:transition-all after:duration-300 text-brand-espresso/70 font-medium after:w-0" id="nav-btn-menu" onclick="navigateTo('menu')">
+  Coffee Menu
+</button>
+<button class="relative hover:text-brand-espresso transition-colors duration-300 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-espresso after:transition-all after:duration-300 text-brand-espresso font-semibold after:w-full" id="nav-btn-about" onclick="navigateTo('about')">
+  About Us
+</button>
+<button class="relative hover:text-brand-espresso transition-colors duration-300 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:bg-brand-espresso after:transition-all after:duration-300 text-brand-espresso/70 font-medium after:w-0" id="nav-btn-contact" onclick="navigateTo('contact')">
+  Contact us
+</button>
+</nav>
+<!-- CTA Action + mobile navigation -->
+<div class="flex items-center gap-3">
+<button aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open navigation menu" class="md:hidden w-10 h-10 rounded-full border border-white/70 bg-white/30 backdrop-blur-md flex flex-col items-center justify-center gap-1.5 text-brand-espresso" id="mobile-nav-toggle" type="button">
+<span class="w-4 h-[1.5px] bg-current rounded-full"></span>
+<span class="w-4 h-[1.5px] bg-current rounded-full"></span>
+<span class="w-4 h-[1.5px] bg-current rounded-full"></span>
+</button>
+<button class="px-6 py-2.5 rounded-full bg-brand-espresso text-white text-xs sm:text-sm font-semibold tracking-wide hover:bg-black transition-all duration-300 shadow-pill hover:shadow-lg transform hover:-translate-y-0.5" id="nav-shop-cta" onclick="navigateTo('menu')">
+  Coffee Shop
+</button>
+</div>
+</header>
+<nav aria-label="Mobile navigation" class="md:hidden" id="mobile-nav-panel">
+<button onclick="mobileNavigate('home')" type="button">Home</button>
+<button onclick="mobileNavigate('menu')" type="button">Coffee Menu</button>
+<button onclick="mobileNavigate('about')" type="button">About Us</button>
+<button onclick="mobileNavigate('contact')" type="button">Contact Us</button>
+</nav>
+<!-- END: MainHeader -->
+<!-- ==================== VIEW 1: HOME VIEW ==================== -->
+<div class="view-container view-active" id="view-home">
+<!-- BEGIN: HeroSection -->
+<section class="relative z-10 pt-12 sm:pt-16 pb-16 lg:pb-24" data-purpose="hero-banner" id="home">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Hero Left Column: Headline & Quick Actions -->
+<div class="lg:col-span-6 flex flex-col items-start space-y-7 reveal-elem revealed">
+<div class="space-y-2">
+<h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-brand-espresso leading-[1.08]">
+        Coffee
+      </h1>
+<p class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-brand-espresso leading-tight">
+        The Best For You
+      </p>
+</div>
+<!-- Action Button -->
+<a class="inline-flex items-center px-8 py-3.5 rounded-full bg-brand-espresso text-white text-sm font-semibold tracking-wide shadow-pill hover:bg-black hover:scale-105 active:scale-95 transition-all duration-300" href="#" onclick="navigateTo('menu'); return false;">
+      View Menu
+    </a>
+<!-- Quick Coffee Category Icons Pill Bar -->
+<div class="flex items-center gap-4 pt-2">
+<!-- Item 1: Cup -->
+<button aria-label="Hot Cup" class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso hover:bg-white hover:scale-110 active:scale-95 transition-all shadow-sm group">
+<svg class="w-5 h-5 transition-transform group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+<path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+<line x1="6" x2="6" y1="1" y2="4"></line>
+<line x1="10" x2="10" y1="1" y2="4"></line>
+<line x1="14" x2="14" y1="1" y2="4"></line>
+</svg>
+</button>
+<!-- Item 2: Cold Brew / Frappe -->
+<button aria-label="Cold Drink" class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso hover:bg-white hover:scale-110 active:scale-95 transition-all shadow-sm group">
+<svg class="w-5 h-5 transition-transform group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M7 21a2 2 0 0 1-2-2L4 7h16l-1 12a2 2 0 0 1-2 2H7z"></path>
+<path d="M4 7V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3"></path>
+<line x1="12" x2="12" y1="11" y2="17"></line>
+</svg>
+</button>
+<!-- Item 3: Mug -->
+<button aria-label="Travel Cup" class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso hover:bg-white hover:scale-110 active:scale-95 transition-all shadow-sm group">
+<svg class="w-5 h-5 transition-transform group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M5 6h14l-1.5 13.5a2 2 0 0 1-2 1.5H8.5a2 2 0 0 1-2-1.5L5 6z"></path>
+<path d="M4 6h16"></path>
+<path d="M10 2h4"></path>
+</svg>
+</button>
+<!-- Item 4: Coffee Beans -->
+<button aria-label="Coffee Beans" class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso hover:bg-white hover:scale-110 active:scale-95 transition-all shadow-sm group">
+<svg class="w-5 h-5 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<ellipse cx="12" cy="12" rx="7" ry="9" transform="rotate(30 12 12)"></ellipse>
+<path d="M8.5 7.5c2 2 5 7 7 9"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Hero Right Column: Interactive 3D Scroll & Mouse Tilted Coffee Saucer -->
+<div class="lg:col-span-6 flex justify-center lg:justify-end relative" id="hero-cup-stage">
+<div class="relative group cursor-pointer" id="interactive-3d-cup" style="transform: translate3d(0px, 0px, 0px) rotateX(-12.59deg) rotateY(-6.98deg) rotateZ(-1.59deg) scale(1);">
+<!-- Soft halo background glow with specular dynamics -->
+<div class="absolute inset-0 rounded-full bg-white/45 blur-3xl transform scale-110 transition-opacity duration-500 group-hover:opacity-100"></div>
+<!-- Realistic Ambient Floating Steam Wisps -->
+<div class="steam-wisp w-16 h-28 top-4 left-1/3"></div>
+<div class="steam-wisp steam-wisp-2 w-20 h-32 top-2 left-1/2"></div>
+<div class="steam-wisp steam-wisp-3 w-14 h-24 top-6 right-1/3"></div>
+<!-- Floating roasted coffee bean particles around hero cup with parallax -->
+<div class="absolute -top-6 -left-4 w-6 h-8 rounded-full bg-[#381a10] shadow-md floating-bean rotate-45 z-20" data-parallax="-0.15" style="--bean-base-rot: 45deg; transform: translate3d(0.7px, 0px, 0px);"></div>
+<div class="absolute top-1/2 -right-8 w-5 h-7 rounded-full bg-[#2a130b] shadow-md floating-bean -rotate-12 z-20" data-parallax="0.2" style="--bean-base-rot: -12deg; transform: translate3d(-0.9px, 0px, 0px);"></div>
+<div class="absolute -bottom-4 left-12 w-6 h-9 rounded-full bg-[#401f13] shadow-md floating-bean rotate-30 z-20" data-parallax="-0.1" style="--bean-base-rot: 30deg; transform: translate3d(0.4px, 0px, 0px);"></div>
+<!-- Top-down Coffee Art Image Container with 3D Pedestal & Realistic Depth -->
+<div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px] rounded-full p-2.5 glass-pill shadow-cup3d transition-all duration-300">
+<div class="w-full h-full rounded-full overflow-hidden relative border-4 border-white/80 shadow-inner">
+<img alt="Top-down aerial view of a ceramic white coffee cup with artistic heart latte art" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY9sZ8iT5SXrk1a-erJE1KnQQ8qTk2R4_Kc-SJ7F4WTsW-fOg6SBGHhhJRTapmDGQp-pe806dDcunALAsNhyfzw0bBh_BOnat62VhPon11Dpm94e2HqgztdkYWlfMZjQ2N21kD7neU9RtQVMjp1gyXoRGZhp1usbO_l9-B8DrI5LkiWXrhAP5K9svlUhEg_BsGsVN7pr2B7_m_6xuJdPjIFmvpnXcp35tDKpF3IJkXECllpNSS7FcGVquayfwa5BgLZQ">
+<!-- Glass reflection light sheen -->
+<div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-white/40 pointer-events-none rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: FeaturedProductsSection -->
+<section class="relative z-10 py-12 lg:py-16" data-purpose="featured-products" id="home-featured">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Product Cards Container (Americano & Cappuccino) -->
+<div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Card 1: Americano with 3D Mouse Tilt & Floating Cup -->
+<div class="glass-card rounded-[32px] p-6 flex flex-col items-center text-center relative shadow-glass reveal-elem interactive-card revealed" style="transition-delay: 100ms; --card-x: 91.88048890447755%; --card-y: 65.10720057794225%;">
+<!-- Coffee Circle Image with levitation -->
+<div class="w-36 h-36 rounded-full overflow-hidden mb-5 border-4 border-white/80 shadow-md bg-white relative animate-float-levitate">
+<!-- Delicate Steam -->
+<div class="steam-wisp w-8 h-16 top-0 left-1/3"></div>
+<img alt="Top-down espresso americano cup with scattered coffee beans" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc6UPjTR8Pxn299nDitQ6k3dFBTnO2BsPRUhPtx9A8UdYh_J9HvnHbh8XgHEKSCyJFpr8Jd18MvJ7fVWjzErgA94D5TZEdHfu19jrZKGcS99OnUZTUViakzR4mMzehdSKn0is1xZVgFw0Sa48fIEuIl_EgUUlBrN45m9xGbX-n5C_W-XCmhGHnNfCpHnq40-BsUkbX8sB3zTQkJlgW1sdzbIf6HuGgZ0ZQcn4hXl8vo8Vw9fK0x4mCYaBxzg_Zu0ML2GY7ZNvDbAlgig">
+</div>
+<h3 class="font-serif text-xl font-bold text-brand-espresso mb-1">Americano</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium">100% Natural Arabica or Robusta, 30 ml cup</p>
+<!-- Footer with Action Icons & Price -->
+<div class="w-full flex items-center justify-between mt-auto pt-3 border-t border-brand-sand/60">
+<div class="flex items-center space-x-3 text-brand-espresso/70">
+<button aria-label="Add to cart" class="hover:text-brand-espresso hover:scale-110 active:scale-95 transition-all">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+</button>
+<button aria-label="Favorite" class="hover:text-red-500 hover:scale-110 active:scale-95 transition-all">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+</button>
+</div>
+<span class="px-4 py-1.5 rounded-full bg-brand-espresso text-white text-xs font-semibold tracking-wider shadow-sm transition-transform hover:scale-105">$2.50</span>
+</div>
+</div>
+<!-- Card 2: Cappuccino with 3D Mouse Tilt & Floating Cup -->
+<div class="glass-card rounded-[32px] p-6 flex flex-col items-center text-center relative shadow-glass reveal-elem interactive-card revealed" style="transition-delay: 200ms; --card-x: 89.92185406249098%; --card-y: 33.23585554870249%;">
+<!-- Coffee Circle Image with levitation -->
+<div class="w-36 h-36 rounded-full overflow-hidden mb-5 border-4 border-white/80 shadow-md bg-white relative animate-float-delayed">
+<!-- Delicate Steam -->
+<div class="steam-wisp w-8 h-16 top-0 left-1/3"></div>
+<img alt="Top-down cappuccino with elegant foam rosette latte art" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHT8y-dL_HU--oPkSD_RF-MJL09K0S6h0f-q1Ua2LmvlbD9TnfQf_AbYy8xmvssGNyS5LbBKk973MWgoK0VsTM9BKgnuhSMQzWGKIMWg6buOxHfnGSI1xIxkTzqlrVs-6sPLMPlrpZESXiRXkGEUzJl_RGqX9rKkq9c3uN9VHKhW_KquPlY5Zuwvtq-aHgsd1tfnbu97-fGgWJXppReVu5h2Vg9WlwqrGNfstgESqOZrG8BYnQP2loA9i5D4EhmuY0LPza8vJUz94Fcg">
+</div>
+<h3 class="font-serif text-xl font-bold text-brand-espresso mb-1">Cappuccino</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium">Coffee 50%, milk 50%, 280 ml</p>
+<!-- Footer with Action Icons & Price -->
+<div class="w-full flex items-center justify-between mt-auto pt-3 border-t border-brand-sand/60">
+<div class="flex items-center space-x-3 text-brand-espresso/70">
+<button aria-label="Add to cart" class="hover:text-brand-espresso hover:scale-110 active:scale-95 transition-all">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+</button>
+<button aria-label="Favorite" class="hover:text-red-500 hover:scale-110 active:scale-95 transition-all">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+</button>
+</div>
+<span class="px-4 py-1.5 rounded-full bg-brand-espresso text-white text-xs font-semibold tracking-wider shadow-sm transition-transform hover:scale-105">$2.50</span>
+</div>
+</div>
+</div>
+<!-- Story Text Column Right -->
+<div class="lg:col-span-5 flex flex-col justify-center space-y-4 pl-0 lg:pl-6 reveal-elem revealed" id="about" style="transition-delay: 250ms;">
+<h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-espresso leading-snug">
+      Crafted for Your Perfect Pause
+    </h2>
+<p class="text-xs sm:text-sm text-brand-espresso/75 leading-relaxed font-normal">
+      From bold espresso to silky cappuccino, every cup is prepared with carefully selected beans and a touch of comfort—made to slow down your day, one sip at a time.
+    </p>
+<div class="pt-2">
+<a class="inline-flex px-6 py-2.5 rounded-full bg-brand-espresso text-white text-xs font-semibold tracking-wide hover:bg-black hover:scale-105 active:scale-95 transition-all duration-300 shadow-pill" href="#" onclick="navigateTo('about'); return false;">
+        Learn More
+      </a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: FeaturedProductsSection -->
+<!-- BEGIN: SignatureShowcaseSection -->
+<section class="relative z-10 py-12 lg:py-20" data-purpose="signature-brews">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Story Info Left -->
+<div class="lg:col-span-6 space-y-5 reveal-elem revealed">
+<h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-espresso leading-tight">
+      A Little Moment of Indulgence
+    </h2>
+<p class="text-xs sm:text-sm text-brand-espresso/75 leading-relaxed font-normal">
+      Smooth, rich, and made with care—our signature latte brings together velvety milk, balanced espresso, and a warm finish worth slowing down for.
+    </p>
+<div class="pt-3">
+<a class="inline-flex px-7 py-3 rounded-full bg-brand-espresso text-white text-xs font-semibold tracking-wide hover:bg-black hover:scale-105 active:scale-95 transition-all duration-300 shadow-pill" href="#" onclick="navigateTo('about'); return false;">
+        Learn More
+      </a>
+</div>
+</div>
+<!-- Showcase Coffee with Floating Beans & Price Badge -->
+<div class="lg:col-span-6 flex justify-center items-center relative py-6 reveal-elem revealed" style="transition-delay: 200ms;">
+<!-- Scattered roast coffee beans decorative simulation with parallax drift -->
+<div class="relative interactive-card" style="--card-x: 72.72161422495056%; --card-y: 69.84976823683084%;">
+<!-- Floating Price Badge -->
+<div class="absolute -top-3 -right-2 z-20 px-4 py-2 rounded-full glass-pill text-brand-espresso font-bold text-sm tracking-wide shadow-md border border-white transform hover:scale-110 transition-transform">
+        $2.50
+      </div>
+<!-- Main Coffee Cup Display -->
+<div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full glass-card p-3 shadow-cup3d relative z-10 flex items-center justify-center">
+<!-- Delicate Steam -->
+<div class="steam-wisp w-12 h-20 top-2 left-1/3"></div>
+<img alt="Top-down cappuccino with elegant foam rosette latte art" class="w-full h-full object-cover rounded-full animate-float-levitate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQMu24ZICwNvehv-8HeOUCfm8_A0yPCBvK5hR2HnC74e6xhBTvZJlNbqFQjJIuLQ820VBIvnNhcBuDXsfChb4e5AZSrMidDPK9heixecAn_DvyvQ73nlVGnPt0p_yrZ9PoMdQ8Jd2OMpKsn4jhDYzvV7IOQZAc05Q9jV6eNpHG2KUtDqm_tnD4C-OdxE9i7ZROYUkN2idCirCQtcWGsfIDEnrCqTXPpU4eEM53LNt2P1wxOMJi2G7hhS6loIOGZ-VjAZGw86ZT81uxnw">
+</div>
+<!-- Surrounding Bean Accents (Realistic 3D styling with gentle parallax bob) -->
+<div class="absolute -top-6 left-10 w-4 h-6 rounded-full bg-[#402014] rotate-45 opacity-85 shadow-sm floating-bean" data-parallax="-0.2" style="--bean-base-rot: 45deg; transform: translate3d(0.9px, 0px, 0px);"></div>
+<div class="absolute top-1/4 -left-8 w-5 h-7 rounded-full bg-[#351A10] -rotate-12 opacity-90 shadow-sm floating-bean" data-parallax="0.25" style="--bean-base-rot: -12deg; transform: translate3d(-1.1px, 0px, 0px);"></div>
+<div class="absolute -bottom-6 left-20 w-4 h-6 rounded-full bg-[#30170F] rotate-12 opacity-90 shadow-sm floating-bean" data-parallax="-0.15" style="--bean-base-rot: 12deg; transform: translate3d(0.7px, 0px, 0px);"></div>
+<div class="absolute top-10 -right-6 w-5 h-7 rounded-full bg-[#472618] rotate-[60deg] opacity-80 shadow-sm floating-bean" data-parallax="0.3" style="--bean-base-rot: 60deg; transform: translate3d(-1.3px, 0px, 0px);"></div>
+<div class="absolute bottom-12 -right-4 w-4 h-6 rounded-full bg-[#3D2015] -rotate-45 opacity-90 shadow-sm floating-bean" data-parallax="-0.2" style="--bean-base-rot: -45deg; transform: translate3d(0.9px, 0px, 0px);"></div>
+<div class="absolute -bottom-4 right-1/4 w-5 h-7 rounded-full bg-[#2A150D] rotate-90 opacity-90 shadow-sm floating-bean" data-parallax="0.18" style="--bean-base-rot: 90deg; transform: translate3d(-0.8px, 0px, 0px);"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SignatureShowcaseSection -->
+<!-- BEGIN: MobileAppFeatureSection -->
+<section class="relative z-10 py-16 lg:py-24 border-t border-stone-300/40" data-purpose="mobile-application">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Mockup Phone Cards on Left with 3D perspective tilt -->
+<div class="lg:col-span-7 flex flex-col sm:flex-row items-center justify-center gap-6 reveal-elem revealed">
+<!-- Phone Screen 1: Menu Listing Screen -->
+<div class="w-64 phone-glass rounded-[36px] p-4 text-brand-espresso shadow-xl transform sm:-rotate-2 transition-all hover:rotate-0 hover:scale-105 interactive-card" style="--card-x: 1.4464375536889107%; --card-y: 21.48873265991556%;">
+<!-- Top bar -->
+<div class="flex items-center justify-between text-xs font-semibold mb-3">
+<span class="text-[10px] text-brand-mocha cursor-pointer">&lt; Back</span>
+<span class="font-serif font-bold">Coffee</span>
+<div class="w-4"></div>
+</div>
+<div class="w-full bg-brand-espresso text-white text-[10px] py-1.5 rounded-full text-center font-medium mb-3 shadow-sm">
+        View Menu
+      </div>
+<!-- Small Coffee Categories -->
+<div class="flex justify-between items-center px-1 mb-3 text-[10px] text-brand-mocha">
+<span class="p-1 rounded-full bg-white/80 shadow-xs">☕</span>
+<span class="hover:scale-110 transition-transform cursor-pointer">🥤</span>
+<span class="hover:scale-110 transition-transform cursor-pointer">🍵</span>
+<span class="hover:scale-110 transition-transform cursor-pointer">🫘</span>
+</div>
+<!-- Product Row Mini-Card -->
+<div class="grid grid-cols-2 gap-2 mb-3">
+<div class="bg-white/65 p-2 rounded-2xl text-center shadow-xs hover:bg-white/90 transition-colors">
+<div class="w-12 h-12 mx-auto rounded-full overflow-hidden mb-1 shadow-inner border border-white">
+<img alt="Americano" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB94g5exVHQzAUoWuA7uoq-C6SxZ2qdjqYOI8pJW-4YdYUuqKCHhc8XMg6vz02u_cR-6rNjQRzQ0Pz4kmnxjcEooIfFaO1qK8OkQ56WGMKOWEQzk32oJ22b1M6staNg9eanwWoIixcToP6jG3chCOIzdL01sjbaKZAFbzPNNIkXZ8Skg2JrgPEKfDEOTzQkpso0Ewztb_ggi6ZvOYeqXE9dUfizJxT560aZ83Z3KNEjahES3toimcw5hkXjIme85IkejDdLb-d4FBYe-g">
+</div>
+<p class="text-[9px] font-bold">Americano</p>
+<p class="text-[7px] text-stone-500">$2.50</p>
+</div>
+<div class="bg-white/65 p-2 rounded-2xl text-center shadow-xs hover:bg-white/90 transition-colors">
+<div class="w-12 h-12 mx-auto rounded-full overflow-hidden mb-1 shadow-inner border border-white">
+<img alt="Cappuccino" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASo0NqWzBUX25lrjtOrLzHdDMglS9qh914eKP1g9WRLekACzTnBbeoXiMCVdCsnvH6Qowvs-FQp7zZAE_oIW9-v3Xq4uBIwdJ9vzR7dRmZ1S-ajwivygPJSn5e3XrZPIxWWh8BLs5-9NyZLGH0GPvhXNGiTRsruNmrBFXUun4aZbSDRJFJe2UbboR5YFrklEcDttzi6Y1YLWc9-ivpbvOeriFDP7T0Zpr6temdiC-DYJHBqNTt87iNKy_ic_nUePRN7g">
+</div>
+<p class="text-[9px] font-bold">Cappuccino</p>
+<p class="text-[7px] text-stone-500">$2.50</p>
+</div>
+</div>
+<!-- Horizontal item card: Moccaccino -->
+<div class="bg-white/65 rounded-2xl p-2.5 flex items-center justify-between mb-4 shadow-xs">
+<div>
+<p class="text-[10px] font-bold">Moccaccino</p>
+<p class="text-[7px] text-stone-500">Mix with Coffee 20%, milk 50%, Water 30%, 280ml</p>
+</div>
+<span class="text-[9px] font-bold bg-brand-espresso text-white px-2 py-0.5 rounded-full">$3.50</span>
+</div>
+<!-- Mobile Bottom Nav -->
+<div class="flex justify-around items-center pt-2 border-t border-brand-sand/50 text-xs">
+<span class="cursor-pointer hover:scale-110 transition-transform">🏠</span>
+<span class="cursor-pointer hover:scale-110 transition-transform">🛒</span>
+<span class="cursor-pointer hover:scale-110 transition-transform">👤</span>
+<span class="cursor-pointer hover:scale-110 transition-transform">⚙️</span>
+</div>
+</div>
+<!-- Phone Screen 2: Product Detail with Floating Coffee Cup -->
+<div class="w-64 phone-glass rounded-[36px] p-5 text-brand-espresso shadow-xl transform sm:translate-y-4 sm:rotate-2 transition-all hover:rotate-0 hover:scale-105 relative interactive-card" style="--card-x: 61.436483824939344%; --card-y: 88.25357036050625%;">
+<div class="text-[10px] text-brand-mocha mb-2 cursor-pointer">&lt; Back</div>
+<!-- Big Product Circle Centerpiece -->
+<div class="w-36 h-36 mx-auto rounded-full overflow-hidden p-1 bg-white/80 shadow-md my-2 relative">
+<img alt="Latte Grand Cup" class="w-full h-full object-cover rounded-full animate-float-levitate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApyOi3BHDsLDBeYYWHDl21WeoHQkcVnzLjzkN3-MwWvQREStHwYmCVX7u29wisq0E6OM3GzrYgmWb22wdPAbzZyHpWqAOnjDy9xtRslGaXrKBO2Iz85AGGd09LsKJCwkYtM5oeVBQwcxV77dBYh2B-RcadJigBLUrBDVmOLGz0sg8lbPvYEUbKtB29y7K9JP1GYrlxHN2j_tC0l2JMWpvPD_NmL7-S7KJ3SboE95WED2GaXYx0mqcp_6sL8y5SSns9kw">
+</div>
+<!-- Product Details -->
+<div class="space-y-1 mt-3">
+<h4 class="font-serif font-bold text-sm">Latte Grand</h4>
+<p class="text-[8px] text-stone-600 leading-tight">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+        </p>
+</div>
+<!-- Price & Add to Cart -->
+<div class="flex items-center justify-between mt-4 pt-2 border-t border-stone-300/60">
+<div>
+<span class="text-[7px] uppercase tracking-wider text-stone-500 block">Total Price</span>
+<span class="text-xs font-bold text-brand-espresso">$3.50</span>
+</div>
+<button class="px-3 py-1.5 rounded-full bg-brand-espresso text-white text-[9px] font-semibold flex items-center gap-1 shadow-sm hover:bg-black transition-colors">
+<span class="">Add to Cart</span>
+<span class="">+</span>
+</button>
+</div>
+</div>
+</div>
+<!-- App Description & Download CTA on Right -->
+<div class="lg:col-span-5 space-y-5 reveal-elem revealed" style="transition-delay: 200ms;">
+<h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-espresso leading-tight">
+      Your Coffee, Wherever You Are
+    </h2>
+<p class="text-xs sm:text-sm text-brand-espresso/75 leading-relaxed">
+      Browse your favorites, discover new blends, and order your perfect cup in just a few taps. Flavored makes every coffee moment simple, smooth, and always close by.
+    </p>
+<!-- Download Badges -->
+<div class="flex items-center gap-3 pt-2">
+<!-- Apple Store Button -->
+<a aria-label="Apple App Store" class="w-11 h-11 rounded-full bg-brand-espresso text-white flex items-center justify-center hover:bg-black hover:scale-110 active:scale-95 transition-all shadow-pill" href="#">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.66-.8 1.1-1.92.98-3.04-1 .04-2.19.67-2.88 1.47-.61.71-1.14 1.85-1 2.95 1.12.09 2.24-.58 2.9-1.38z"></path>
+</svg>
+</a>
+<!-- Google Play Button -->
+<a aria-label="Google Play Store" class="w-11 h-11 rounded-full bg-brand-espresso text-white flex items-center justify-center hover:bg-black hover:scale-110 active:scale-95 transition-all shadow-pill" href="#">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+<path d="M3.609 1.814L13.793 12 3.61 22.186a1.99 1.99 0 0 1-.22-.924V2.738c0-.342.08-.659.219-.924zm11.3 9.07l2.457-2.457-11.83-6.83a1.988 1.988 0 0 1 1.07-.27c.502 0 .984.148 1.401.39l6.902 9.167zm0 2.232L8.007 22.28c-.417.243-.9.39-1.401.39-.387 0-.756-.098-1.07-.27l11.83-6.83-2.457-2.456zm1.116-1.116l3.774 2.18c.95.55 1.492 1.54 1.492 2.63s-.542 2.08-1.492 2.63l-3.774-7.44z"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: MobileAppFeatureSection -->
+<!-- BEGIN: ReservationBanner -->
+<section class="relative z-10 py-12 sm:py-16 border-t border-stone-300/40 reveal-elem revealed" data-purpose="table-reservation" id="home-reserve">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div class="space-y-1">
+<span class="text-[11px] uppercase tracking-widest font-semibold text-brand-mocha block">LET'S TALK</span>
+<h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-espresso">
+      Want to Reserve a Table?
+    </h2>
+</div>
+<div>
+<a class="inline-flex px-8 py-3.5 rounded-full bg-brand-espresso text-white text-xs sm:text-sm font-semibold tracking-wide shadow-pill hover:bg-black hover:scale-105 active:scale-95 transition-all duration-300" href="#" onclick="navigateTo('contact'); return false;">
+      Contact Now
+    </a>
+</div>
+</div>
+<p class="text-xs sm:text-sm text-brand-espresso/70 mt-6 max-w-2xl leading-relaxed">
+  Planning a quiet coffee break, a catch-up with friends, or a special moment? Contact us to reserve your table, and we’ll make sure a warm welcome is waiting for you.
+</p>
+</section>
+<!-- END: ReservationBanner -->
+
+</div>
+<!-- ==================== END VIEW 1: HOME VIEW ==================== -->
+<!-- ==================== VIEW 2: COFFEE MENU VIEW ==================== -->
+<div class="view-container view-hidden-left" id="view-menu" style="display: none;">
+<!-- Menu Header Section -->
+<section class="relative z-10 pt-10 sm:pt-14 pb-8 text-center" data-purpose="menu-header">
+<div class="max-w-2xl mx-auto space-y-3">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-xs font-semibold text-brand-mocha tracking-wider uppercase mb-1">
+<span class="">Freshly Roasted Daily</span>
+</div>
+<h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-espresso">
+      The Coffee Menu
+    </h1>
+<p class="text-sm sm:text-base text-brand-mocha/80 font-normal">
+      Every cup, crafted with care.
+    </p>
+</div>
+</section>
+<!-- Coffee Menu Grid (8 signature coffee drinks) -->
+<div class="space-y-12 sm:space-y-16 py-6">
+<!-- Category 1: Artisanal Coffee -->
+<section class="relative z-10" data-purpose="category-artisanal-coffee">
+<div class="flex items-center justify-between mb-8 pb-4 border-b border-stone-300/40">
+<div>
+<span class="text-[11px] uppercase tracking-widest font-semibold text-brand-mocha block mb-1">HOT &amp; FRESHLY BREWED</span>
+<h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-espresso">Artisanal Coffee</h2>
+</div>
+<span class="text-xs text-brand-mocha/80 font-medium hidden sm:block">Hand-pulled espresso &amp; steamed milk</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Item 1: Espresso -->
+<div class="cascade-item cascade-delay-1 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1) translateY(0px);">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform; transform: translateZ(0px) scale(1) rotate(0deg);">
+<img alt="Espresso" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi790oGYowVv5irsY-VNsDYrNx8rT2sngMmDTR61uiWynfnNsWYzlchZdrH1jSmWKyo61oX0eH70p20TIOpbQrJJs0no0JTIxySipETFTtm9wPQ5_sE2__xdbPWXU-pKjvnSRNoeldHlijkehDRyFmszy1nxGvC8W5I5N_RxL0dUS9T8Qmgxv8K0zALKN34FVAh0BtJ-Q_xiWzJbsE20EFpx4vUtOf0fz7ynSRVJnaZdHhfby47-1pinTNUkfyJZ8n3g">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Espresso</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">Single shot intense pure roast Arabica with thick velvety golden crema, 30 ml</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$2.25</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Espresso', 2.25, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDi790oGYowVv5irsY-VNsDYrNx8rT2sngMmDTR61uiWynfnNsWYzlchZdrH1jSmWKyo61oX0eH70p20TIOpbQrJJs0no0JTIxySipETFTtm9wPQ5_sE2__xdbPWXU-pKjvnSRNoeldHlijkehDRyFmszy1nxGvC8W5I5N_RxL0dUS9T8Qmgxv8K0zALKN34FVAh0BtJ-Q_xiWzJbsE20EFpx4vUtOf0fz7ynSRVJnaZdHhfby47-1pinTNUkfyJZ8n3g', 'Single shot intense pure roast Arabica with thick velvety golden crema, 30 ml', 'Artisanal Coffee', false)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+<!-- Item 2: Americano -->
+<div class="cascade-item cascade-delay-2 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1) translateY(0px);">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform; transform: translateZ(0px) scale(1) rotate(0deg);">
+<img alt="Americano" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9vHC9lHDe2boaWOpRTc0eIQ66QwnUpz39pFyYW9JXD4AUrY0gO-LLy-8BZFmDO6_NOUhDfvGDpk-U3y1uJoSMwvf6Y60KJZtEZF4PW32crpqkQfctFkjVhrdWveFeP5jwWkZpeghIUjp3L9VBPS0r-WElDY8XWLCvWKqs6S8LTRd1eptT3HpGGVyqjVJS7CMYJLVGNtZOq8eFhygjmmp3zIoEs5mKwEeN3eXVuGCz3Qa2pdvEcPAIR1DlcHyEHJfqBA">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Americano</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">Double shot espresso pulled over artisan mineral water, smooth and bold, 180 ml</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$2.50</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Americano', 2.50, 'https://lh3.googleusercontent.com/aida-public/AB6AXuA9vHC9lHDe2boaWOpRTc0eIQ66QwnUpz39pFyYW9JXD4AUrY0gO-LLy-8BZFmDO6_NOUhDfvGDpk-U3y1uJoSMwvf6Y60KJZtEZF4PW32crpqkQfctFkjVhrdWveFeP5jwWkZpeghIUjp3L9VBPS0r-WElDY8XWLCvWKqs6S8LTRd1eptT3HpGGVyqjVJS7CMYJLVGNtZOq8eFhygjmmp3zIoEs5mKwEeN3eXVuGCz3Qa2pdvEcPAIR1DlcHyEHJfqBA', 'Double shot espresso pulled over artisan mineral water, smooth and bold, 180 ml', 'Artisanal Coffee', false)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+<!-- Item 3: Cappuccino -->
+<div class="cascade-item cascade-delay-3 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d;">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform;">
+<img alt="Cappuccino" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt8bTxsC7ncvNs3I6TpctVCM51rUMlyZSzFSj3h0Y_LBocYPqO_Yeo7ZLZhm6mVWEIxces2_c_Wrx2Q_hghdqbZ8pel1mHOvTjjF-Na2WBXY6QfHWpWuT02f5q5Sx3p5u460v0v5qDP7N0L-SAzZ9m0PIbhJTjiDvuEgRzItcUOJ39S8WuXmfapvT8vnyFvnbRokb0y6T_x-Ur5ltiNhkwAGuC_nF03LLr7W2Ngnp7yGE365RIjP0-z6eNN5sKxJ5dng">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Cappuccino</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">Silky microfoam with dust of cocoa and balanced espresso foundation, 240 ml</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$2.50</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Cappuccino', 2.50, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAt8bTxsC7ncvNs3I6TpctVCM51rUMlyZSzFSj3h0Y_LBocYPqO_Yeo7ZLZhm6mVWEIxces2_c_Wrx2Q_hghdqbZ8pel1mHOvTjjF-Na2WBXY6QfHWpWuT02f5q5Sx3p5u460v0v5qDP7N0L-SAzZ9m0PIbhJTjiDvuEgRzItcUOJ39S8WuXmfapvT8vnyFvnbRokb0y6T_x-Ur5ltiNhkwAGuC_nF03LLr7W2Ngnp7yGE365RIjP0-z6eNN5sKxJ5dng', 'Silky microfoam with dust of cocoa and balanced espresso foundation, 240 ml', 'Artisanal Coffee', false)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+<!-- Item 4: Flat White -->
+<div class="cascade-item cascade-delay-4 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1) translateY(0px);">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform; transform: translateZ(0px) scale(1) rotate(0deg);">
+<img alt="Flat White" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWI6B3U-SJgLTn05S-UxfWkHIBSOP7R8hEzjkMpTWGkUIvcZVpX86_kYXC9E4zvnp5uYD9fBfTkDd2l3RVnmxWNzm7zx7kN3B95WuvTOoTjojdIuc1kazRpJH-AESdMT3VuspM4bkPf2O5ZTIk0MN4OjnqUMWFcolr-kZPDKqZazpytoFLWHNZC8CkSWGX3aQT5WPVl-vhyYdbYJdfTfEuSCaZ_sTgkfR9Jx7KXAutNOTf4W71jGZNdN6xOcRN0ydJRw">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Flat White</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">Double ristretto enveloped in micro-textured milk with delicate latte rosette, 200 ml</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$3.20</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Flat White', 3.20, 'https://lh3.googleusercontent.com/aida-public/AB6AXuDWI6B3U-SJgLTn05S-UxfWkHIBSOP7R8hEzjkMpTWGkUIvcZVpX86_kYXC9E4zvnp5uYD9fBfTkDd2l3RVnmxWNzm7zx7kN3B95WuvTOoTjojdIuc1kazRpJH-AESdMT3VuspM4bkPf2O5ZTIk0MN4OjnqUMWFcolr-kZPDKqZazpytoFLWHNZC8CkSWGX3aQT5WPVl-vhyYdbYJdfTfEuSCaZ_sTgkfR9Jx7KXAutNOTf4W71jGZNdN6xOcRN0ydJRw', 'Double ristretto enveloped in micro-textured milk with delicate latte rosette, 200 ml', 'Artisanal Coffee', false)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+<!-- Item 5: Vanilla Latte -->
+<div class="cascade-item cascade-delay-5 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1) translateY(0px);">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform; transform: translateZ(0px) scale(1) rotate(0deg);">
+<img alt="Vanilla Latte" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwOJqRtk4iC8Fq1TB49DIyLTUa-x226yDzP9w5wyoI20P0lx7b6wxVPbAx-qygwi5Jwt9W4MnBMzCDuK8rro8ehhQms3nlIm8eFGwQIQNXPBuy2HIX3q2lp1Lsepv_DWS01xwz2hdVakPPArkx7ewLi18EBgjIaznlhGalKyQAT9I38AkCjfxaSNOLpUkneviPIap722O7HL1hD-ROvZH_uFBI-z5B0W1hYPlv2NWJn4vV7kiwb5sVi4_cflYapl_ugg">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Vanilla Latte</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">Madagascar pure vanilla bean infusion with aromatic espresso and sweet foam, 300 ml</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$3.40</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Vanilla Latte', 3.40, 'https://lh3.googleusercontent.com/aida-public/AB6AXuCwOJqRtk4iC8Fq1TB49DIyLTUa-x226yDzP9w5wyoI20P0lx7b6wxVPbAx-qygwi5Jwt9W4MnBMzCDuK8rro8ehhQms3nlIm8eFGwQIQNXPBuy2HIX3q2lp1Lsepv_DWS01xwz2hdVakPPArkx7ewLi18EBgjIaznlhGalKyQAT9I38AkCjfxaSNOLpUkneviPIap722O7HL1hD-ROvZH_uFBI-z5B0W1hYPlv2NWJn4vV7kiwb5sVi4_cflYapl_ugg', 'Madagascar pure vanilla bean infusion with aromatic espresso and sweet foam, 300 ml', 'Artisanal Coffee', false)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+<!-- Item 6: Mocha -->
+<div class="cascade-item cascade-delay-6 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1) translateY(0px);">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform; transform: translateZ(0px) scale(1) rotate(0deg);">
+<img alt="Mocha" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR0nFTypv1uf2DHoWsxe3oN5bdaSJuZFjXOZ_ZITqSansNy4dNaBdKhz_BHnAYDBeSyRzj7czGRa8UcWlGe6wXrZoLWps_NMx0n2LPPAuDQOm3I30BjEE6bfFhtIO_jkubbkqmqw0nfkPkSkPFJoTnaeKHfWUwoDiTDHJE1gMGw3xNI7zat5p4AdI8CD-BnpSscB7trMbgvfZy5eOi_LIofeaXsOF0SQq902WJXBiLqU2OC6SCFa2OeC4ZswTYqJbksQ">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Mocha</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">Dark Dutch cocoa shavings melted into espresso with whipped chocolate cream, 280 ml</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$3.50</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Mocha', 3.50, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBR0nFTypv1uf2DHoWsxe3oN5bdaSJuZFjXOZ_ZITqSansNy4dNaBdKhz_BHnAYDBeSyRzj7czGRa8UcWlGe6wXrZoLWps_NMx0n2LPPAuDQOm3I30BjEE6bfFhtIO_jkubbkqmqw0nfkPkSkPFJoTnaeKHfWUwoDiTDHJE1gMGw3xNI7zat5p4AdI8CD-BnpSscB7trMbgvfZy5eOi_LIofeaXsOF0SQq902WJXBiLqU2OC6SCFa2OeC4ZswTYqJbksQ', 'Dark Dutch cocoa shavings melted into espresso with whipped chocolate cream, 280 ml', 'Artisanal Coffee', false)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Category 2: Cold Drinks & Shakes -->
+<section class="relative z-10" data-purpose="category-cold-drinks">
+<div class="flex items-center justify-between mb-8 pb-4 border-b border-stone-300/40">
+<div>
+<span class="text-[11px] uppercase tracking-widest font-semibold text-brand-mocha block mb-1">CHILLED &amp; REFRESHING</span>
+<h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-espresso">Cold Drinks &amp; Shakes</h2>
+</div>
+<span class="text-xs text-brand-mocha/80 font-medium hidden sm:block">Brewed slow and served iced</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Cold Drink 1: Cold Brew -->
+<div class="cascade-item cascade-delay-7 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d;">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform;">
+<img alt="Cold Brew" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzIBtywcNfR0HDTvcT0kI9sOfgtsYvqeI4ivq4-AV-DFihTcFfhfhLBggqUSpNBpzx9VmSXn4X3_iKpneYOzvhDtIMIFDff-Yo-G02icOkyuN-FRU8bCzUCa_33dJjswU9TCuH2ft52D6rTmqx0gblwFDWsTKtmFjTBCpY7H5Vw_ukG0t-nF_-iY5V0tcvrGIVt0vbYMWBnqTsty-j99jJ7nT-1EKRMzD0rz1Z99ueNjCfDZ_xLA5n-msoOr5yXa3iXQ">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Cold Brew</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">Steeped 18 hours for natural sweetness, subtle chocolate notes and ultra-low acidity, 350 ml</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$3.25</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Cold Brew', 3.25, 'https://lh3.googleusercontent.com/aida-public/AB6AXuAzIBtywcNfR0HDTvcT0kI9sOfgtsYvqeI4ivq4-AV-DFihTcFfhfhLBggqUSpNBpzx9VmSXn4X3_iKpneYOzvhDtIMIFDff-Yo-G02icOkyuN-FRU8bCzUCa_33dJjswU9TCuH2ft52D6rTmqx0gblwFDWsTKtmFjTBCpY7H5Vw_ukG0t-nF_-iY5V0tcvrGIVt0vbYMWBnqTsty-j99jJ7nT-1EKRMzD0rz1Z99ueNjCfDZ_xLA5n-msoOr5yXa3iXQ', 'Steeped 18 hours for natural sweetness, subtle chocolate notes and ultra-low acidity, 350 ml', 'Cold Drinks &amp; Shakes', false)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+<!-- Cold Drink 2: Caramel Latte Shake -->
+<div class="cascade-item cascade-delay-8 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d;">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform;">
+<img alt="Caramel Latte Shake" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE41dGcW7nKZjGa8f4Ngs0K4Ju7ywztmNNdeFilGpL-rHj89_361xhEebgDezvT80IdsI2gLVys_dTRIRsPFx1YdwzTgKCBDw7pjMHkmcFfcwDDD9KIONzThEdbZmf1BwZVueP8-34k-YaOboqWvkZ-TxSJcwK1KtgQ4k6HZbOhO1MuhCn-vdYYutLUlRz5cvM6jLYnqoA2xVj2p5SEtB45aOOKUIGI55881xqAmcWnBMLGsF1i1nuqBUWhkL3ZrfA3A">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Caramel Latte Shake</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">House salted caramel drizzle, cold pressed espresso and dense shaken cream, 320 ml</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$3.80</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Caramel Latte Shake', 3.80, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBE41dGcW7nKZjGa8f4Ngs0K4Ju7ywztmNNdeFilGpL-rHj89_361xhEebgDezvT80IdsI2gLVys_dTRIRsPFx1YdwzTgKCBDw7pjMHkmcFfcwDDD9KIONzThEdbZmf1BwZVueP8-34k-YaOboqWvkZ-TxSJcwK1KtgQ4k6HZbOhO1MuhCn-vdYYutLUlRz5cvM6jLYnqoA2xVj2p5SEtB45aOOKUIGI55881xqAmcWnBMLGsF1i1nuqBUWhkL3ZrfA3A', 'House salted caramel drizzle, cold pressed espresso and dense shaken cream, 320 ml', 'Cold Drinks &amp; Shakes', false)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+<!-- Cold Drink 3: Iced Espresso Tonic -->
+<div class="cascade-item cascade-delay-9 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d;">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform;">
+<img alt="Iced Espresso Tonic" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaMwQyjeQpvRdsr9sgm2HIQEvvFVPpHmwl07hBtuNTcf4gxYRyvlTV0GPmoO4Pdos0ESt-iE4Nvsi8DX19qQWaBhLzqvZAFzIrGCNZI3BiI7WNFbPtHYbUg21VnB9donEZGePNQ6cGKTTY72o6RSv_DnczHp-KkWXTQ0USRDaGzylg-PPxx6UHCKY_gwyOo1CMmpBw5rg3O9PVGgg75vWPXjPxM9hsJSO6hDCmPOThwRuyNDWmxagwVVs2crRvXblpIq7H7q-KZm92Ag">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Iced Vanilla Velvet</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">Double espresso aerated with crushed mountain ice and a touch of raw cane syrup, 250 ml</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$3.40</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Iced Vanilla Velvet', 3.40, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBaMwQyjeQpvRdsr9sgm2HIQEvvFVPpHmwl07hBtuNTcf4gxYRyvlTV0GPmoO4Pdos0ESt-iE4Nvsi8DX19qQWaBhLzqvZAFzIrGCNZI3BiI7WNFbPtHYbUg21VnB9donEZGePNQ6cGKTTY72o6RSv_DnczHp-KkWXTQ0USRDaGzylg-PPxx6UHCKY_gwyOo1CMmpBw5rg3O9PVGgg75vWPXjPxM9hsJSO6hDCmPOThwRuyNDWmxagwVVs2crRvXblpIq7H7q-KZm92Ag', 'Double espresso aerated with crushed mountain ice and a touch of raw cane syrup, 250 ml', 'Cold Drinks &amp; Shakes', false)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Category 3: Bakery & Pastries -->
+<section class="relative z-10" data-purpose="category-bakery-pastries">
+<div class="flex items-center justify-between mb-8 pb-4 border-b border-stone-300/40">
+<div>
+<span class="text-[11px] uppercase tracking-widest font-semibold text-brand-mocha block mb-1">FRESH FROM OUR OVEN</span>
+<h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-espresso">Bakery &amp; Pastries</h2>
+</div>
+<span class="text-xs text-brand-mocha/80 font-medium hidden sm:block">Warmly baked daily at 6:00 AM</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<!-- Bakery Item 1: Croissant -->
+<div class="cascade-item cascade-delay-9 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d;">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform;">
+<img alt="Butter Croissant" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtHx8Dm9ffZWLLY47C2GfevnJfxxtt1o1GJ4jLS83VQkqdu_yzbVo9xJkmwpRBR8IAaA2VidauBIF34lqAd5MrgwStQNt-jBc2fIm3BBHSXot2rua_uqlM2LSiGUm6o6NfOcqJdnhW0oT74s0iTcvYOarLjXo0grXwseo6Adgo7rgrx7q_5QQT0IydgOVJMvTGfMj9vFeWzX6gduOjlRUIOJAyRC-kPqNcnktZXbKliZFF0UDyaMTVKu4-KwwmLWCgSg">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Butter Croissant</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">French-style laminated pastry with a crisp flaky golden crust and fragrant butter layers.</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$2.75</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Butter Croissant', 2.75, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBtHx8Dm9ffZWLLY47C2GfevnJfxxtt1o1GJ4jLS83VQkqdu_yzbVo9xJkmwpRBR8IAaA2VidauBIF34lqAd5MrgwStQNt-jBc2fIm3BBHSXot2rua_uqlM2LSiGUm6o6NfOcqJdnhW0oT74s0iTcvYOarLjXo0grXwseo6Adgo7rgrx7q_5QQT0IydgOVJMvTGfMj9vFeWzX6gduOjlRUIOJAyRC-kPqNcnktZXbKliZFF0UDyaMTVKu4-KwwmLWCgSg', 'French-style laminated pastry with a crisp flaky golden crust and fragrant butter layers.', 'Bakery &amp; Pastries', true)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+<!-- Bakery Item 2: Cinnamon Roll -->
+<div class="cascade-item cascade-delay-10 glass-card rounded-[36px] p-6 flex flex-col items-center text-center relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group hover:scale-105 hover:shadow-2xl cursor-pointer" onmouseleave="this.style.transform='perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1) translateY(0px)';const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform='translateZ(0px) scale(1) rotate(0deg)';" onmousemove="const r=this.getBoundingClientRect(),x=(event.clientX-r.left)/r.width-0.5,y=(event.clientY-r.top)/r.height-0.5;this.style.transform=`perspective(1000px) rotateX(${-y*18}deg) rotateY(${x*18}deg) scale3d(1.04,1.04,1.04) translateY(-8px)`;const img=this.querySelector('.rounded-full.overflow-hidden');if(img)img.style.transform=`translateZ(30px) scale(1.06) rotate(${-x*6}deg) drop-shadow(0 20px 25px rgba(34,17,12,0.25))`;" style="transition: 500ms cubic-bezier(0.16, 1, 0.3, 1); transform-style: preserve-3d;">
+<div class="w-48 h-48 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 border-4 border-white/80 shadow-md bg-white flex items-center justify-center p-2" style="transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms; will-change: transform;">
+<img alt="Cinnamon Roll" class="w-full h-full object-cover rounded-full transform group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTpag4pxjXoNgug8_klhq17huWvZLaG7O8TWypI8MWhm_YDmFvwRsqjl715cjew9ojOcbSKSXN5CCqqwasq42qvwgG0oS82fx-xyvGQei-9gE2PdQT7ufIWwEJUnyFks1bsO5njwFuV3AIOFJHIyreAKGMmxflUMDlCa6RlByycfKe48gLtvOx8GBJ3mwCkqe8zRsyKCRaUC-iveTm8wkjFLbPHs3_vNVQ1fCqLrOBw95DFMaZH-NOV4Hv8VhTR7WsEw">
+</div>
+<h3 class="font-serif text-2xl font-bold text-brand-espresso mb-1.5">Cinnamon Roll</h3>
+<p class="text-xs text-brand-mocha/80 mb-6 font-medium leading-relaxed max-w-xs">Warm spiced cinnamon swirl with lavishly drizzled Madagascar vanilla cream glaze.</p>
+<div class="w-full flex items-center justify-between mt-auto pt-4 border-t border-brand-sand/60">
+<span class="text-base font-bold text-brand-espresso">$3.25</span>
+<button class="px-5 py-2 rounded-full bg-brand-espresso text-white text-xs font-semibold hover:bg-black transition-all shadow-sm flex items-center gap-1.5 hover:scale-105" onclick="openProductModal('Cinnamon Roll', 3.25, 'https://lh3.googleusercontent.com/aida-public/AB6AXuBTpag4pxjXoNgug8_klhq17huWvZLaG7O8TWypI8MWhm_YDmFvwRsqjl715cjew9ojOcbSKSXN5CCqqwasq42qvwgG0oS82fx-xyvGQei-9gE2PdQT7ufIWwEJUnyFks1bsO5njwFuV3AIOFJHIyreAKGMmxflUMDlCa6RlByycfKe48gLtvOx8GBJ3mwCkqe8zRsyKCRaUC-iveTm8wkjFLbPHs3_vNVQ1fCqLrOBw95DFMaZH-NOV4Hv8VhTR7WsEw', 'Warm spiced cinnamon swirl with lavishly drizzled Madagascar vanilla cream glaze.', 'Bakery &amp; Pastries', true)">
+<span class="">Add</span>
+<span class="font-bold text-sm">+</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Bakery Section -->
+<!-- Return to Home CTA Section -->
+<section class="relative z-10 py-10 text-center border-t border-stone-300/40">
+<p class="text-xs sm:text-sm text-brand-mocha/80 mb-4">Ready to discover more about our roastery story and table booking?</p>
+<button class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-brand-espresso text-white text-xs sm:text-sm font-semibold tracking-wide hover:bg-black transition-all duration-300 shadow-pill hover:scale-105" onclick="navigateTo('home')">
+<span class="">← Back to Home</span>
+</button>
+</section>
+</div>
+<!-- ==================== END VIEW 2: COFFEE MENU VIEW ==================== -->
+<!-- ==================== VIEW 3: ABOUT US VIEW ==================== -->
+<div class="view-container view-hidden-left" id="view-about" style="display: none;">
+<!-- About Us Hero / Header -->
+<section class="relative z-10 pt-10 sm:pt-16 pb-12" data-purpose="about-hero">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<div class="lg:col-span-7 space-y-6">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-xs font-semibold text-brand-mocha tracking-wider uppercase">
+<span class="">Our Story &amp; Heritage</span>
+</div>
+<div class="space-y-2">
+<h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-espresso leading-[1.1]">
+Our Story
+</h1>
+<p class="font-serif text-xl sm:text-2xl lg:text-3xl text-brand-mocha font-semibold">
+Crafting moments, one bean at a time.
+</p>
+</div>
+<p class="text-sm sm:text-base text-brand-espresso/80 leading-relaxed font-normal">
+Born from an enduring reverence for the simple morning cup, Flavored began as an intimate boutique roastery dedicated to the purity of coffee craftsmanship. We traverse high-altitude volcanic soils across Ethiopia, Colombia, and Guatemala to partner directly with generational farmers who preserve ancestral agronomy.
+</p>
+<p class="text-xs sm:text-sm text-brand-espresso/70 leading-relaxed font-normal">
+Each small batch is gently flame-roasted to coax out the origin’s delicate terroir—never over-roasted, never rushed. In every porcelain vessel, we honor both the hands that harvested the red coffee cherry and the spirit of mindful pauses in a hurried world.
+</p>
+<div class="flex items-center gap-4 pt-2">
+<button class="px-7 py-3 rounded-full bg-brand-espresso text-white text-xs sm:text-sm font-semibold tracking-wide hover:bg-black transition-all duration-300 shadow-pill hover:scale-105" onclick="navigateTo('menu')">
+Explore Our Brews
+</button>
+<button class="px-7 py-3 rounded-full glass-pill text-brand-espresso text-xs sm:text-sm font-semibold hover:bg-white transition-all duration-300 shadow-sm" onclick="navigateTo('home')">
+Back to Home
+</button>
+</div>
+</div>
+<!-- Visual Feature Composition -->
+<div class="lg:col-span-5 flex justify-center relative">
+<div class="relative group">
+<div class="absolute inset-0 rounded-full bg-white/40 blur-3xl transform scale-110"></div>
+<div class="relative w-72 h-72 sm:w-88 sm:h-88 rounded-full p-3 glass-pill shadow-coffee transition-transform duration-700 hover:rotate-3">
+<img alt="Artisanal freshly roasted espresso and latte art cup" class="w-full h-full object-cover rounded-full drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgGuz75HE2SNom-Jx5BSh9OLNC2-D0Piyxeilg65nb-YlEqg3iqy5IjWadb0pNy2DG-R_OlKtm8ejNE3g-2U1VJOUx7a6kA4P3WNrPt_qhkxdhQgFVl3Xk-OwELbohxjpHK6-ttY7pkgQzfIiPPx1v8R0ijHmbsibnLmEfCs56_8oAipyvuFZVs3W78Be4azVUW5DJKNNHzH3gFMRCyjsLm-Y3i9W_JEWIvPPrz8TN706zwdtaATE7YEWNnxuCQrx4FVFCs-MMPJdC9w">
+</div>
+<div class="absolute -bottom-2 -left-3 px-5 py-3 rounded-3xl glass-card shadow-glass border border-white/80">
+<p class="text-[10px] uppercase font-bold tracking-wider text-brand-mocha">Roasting Since</p>
+<p class="font-serif text-lg font-bold text-brand-espresso">2018 · Small Batch</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Pillars Grid -->
+<section class="relative z-10 py-12 border-t border-stone-300/40" data-purpose="about-pillars">
+<div class="text-center max-w-xl mx-auto mb-10 space-y-2">
+<span class="text-[11px] uppercase tracking-widest font-semibold text-brand-mocha block">THE FLAVORED PROMISE</span>
+<h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-espresso">Rooted in Passion &amp; Craft</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Pillar 1 -->
+<div class="glass-card rounded-[32px] p-6 flex flex-col items-start relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group">
+<div class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso mb-4 group-hover:scale-110 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+</svg>
+</div>
+<h3 class="font-serif text-lg font-bold text-brand-espresso mb-2">Ethically Sourced</h3>
+<p class="text-xs text-brand-espresso/75 leading-relaxed font-normal">Direct trade partnerships with sustainable organic coffee farms guaranteeing fair living wages and shade-grown micro-lots.</p>
+</div>
+<!-- Pillar 2 -->
+<div class="glass-card rounded-[32px] p-6 flex flex-col items-start relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group">
+<div class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso mb-4 group-hover:scale-110 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<ellipse cx="12" cy="12" rx="7" ry="9" transform="rotate(30 12 12)"></ellipse>
+<path d="M8.5 7.5c2 2 5 7 7 9"></path>
+</svg>
+</div>
+<h3 class="font-serif text-lg font-bold text-brand-espresso mb-2">Master Roasters</h3>
+<p class="text-xs text-brand-espresso/75 leading-relaxed font-normal">Slow drum-roasting precision highlighting natural floral sweetness, bright stone fruit subtleties, and deep cocoa body.</p>
+</div>
+<!-- Pillar 3 -->
+<div class="glass-card rounded-[32px] p-6 flex flex-col items-start relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group">
+<div class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso mb-4 group-hover:scale-110 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M18 8h1a4 4 0 1 1 0 8h-1"></path>
+<path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+<line x1="6" x2="6" y1="1" y2="4"></line>
+<line x1="10" x2="10" y1="1" y2="4"></line>
+<line x1="14" x2="14" y1="2" y2="4"></line>
+</svg>
+</div>
+<h3 class="font-serif text-lg font-bold text-brand-espresso mb-2">The Art of Microfoam</h3>
+<p class="text-xs text-brand-espresso/75 leading-relaxed font-normal">Dedicated baristas obsessed with velvet silk texture, precise 62°C steam temperatures, and expressive latte art.</p>
+</div>
+<!-- Pillar 4 -->
+<div class="glass-card rounded-[32px] p-6 flex flex-col items-start relative shadow-glass transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/50 group">
+<div class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso mb-4 group-hover:scale-110 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+</svg>
+</div>
+<h3 class="font-serif text-lg font-bold text-brand-espresso mb-2">Warm Community</h3>
+<p class="text-xs text-brand-espresso/75 leading-relaxed font-normal">A luminous, comforting sanctuary consciously designed for slow morning rituals, intimate meetings, and genuine human connection.</p>
+</div>
+</div>
+</section>
+<!-- Counter & Milestones Row -->
+<section class="relative z-10 py-10 my-4 glass-card rounded-[36px] shadow-glass" data-purpose="about-metrics">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center px-6 sm:px-12">
+<div class="space-y-1">
+<p class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-espresso">100%</p>
+<p class="text-xs sm:text-sm font-medium text-brand-mocha">Organic Single Arabica</p>
+</div>
+<div class="space-y-1 border-l border-brand-sand/60">
+<p class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-espresso">12+</p>
+<p class="text-xs sm:text-sm font-medium text-brand-mocha">Signature Master Blends</p>
+</div>
+<div class="space-y-1 border-t sm:border-t-0 sm:border-l border-brand-sand/60 pt-4 sm:pt-0">
+<p class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-espresso">15k+</p>
+<p class="text-xs sm:text-sm font-medium text-brand-mocha">Cups Served Monthly</p>
+</div>
+<div class="space-y-1 border-t sm:border-t-0 sm:border-l border-brand-sand/60 pt-4 sm:pt-0">
+<p class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-espresso">4.9★</p>
+<p class="text-xs sm:text-sm font-medium text-brand-mocha">Community Rating</p>
+</div>
+</div>
+</section>
+<!-- Philosophy / Quote Section -->
+<section class="relative z-10 py-12 sm:py-16 text-center max-w-3xl mx-auto" data-purpose="about-philosophy">
+<svg class="w-10 h-10 mx-auto text-brand-mocha/40 mb-4" fill="currentColor" viewBox="0 0 24 24">
+<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
+</svg>
+<blockquote class="font-serif text-xl sm:text-2xl lg:text-3xl font-semibold text-brand-espresso leading-snug italic mb-4">
+"Coffee isn't just a drink; it's a ritual that welcomes your morning and honors your pause."
+</blockquote>
+<p class="text-xs sm:text-sm uppercase tracking-widest text-brand-mocha font-bold">— Flavored Roastery Atelier</p>
+</section>
+<!-- About View Action Footer -->
+<section class="relative z-10 py-8 text-center border-t border-stone-300/40">
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-brand-espresso text-white text-xs sm:text-sm font-semibold tracking-wide hover:bg-black transition-all duration-300 shadow-pill hover:scale-105" onclick="navigateTo('menu')">
+<span class="">Browse The Coffee Menu →</span>
+</button>
+<button class="inline-flex items-center gap-2 px-8 py-3 rounded-full glass-pill text-brand-espresso text-xs sm:text-sm font-semibold hover:bg-white transition-all duration-300" onclick="navigateTo('contact')">
+<span class="">Reserve a Table</span>
+</button>
+</div>
+</section>
+</div>
+<!-- ==================== END VIEW 3: ABOUT US VIEW ==================== -->
+<!-- ==================== VIEW 4: CONTACT US VIEW ==================== -->
+<div class="view-container view-hidden-right" id="view-contact" style="display: none;">
+<!-- Contact Us Header -->
+<section class="relative z-10 pt-10 sm:pt-14 pb-8 text-center" data-purpose="contact-header">
+<div class="max-w-2xl mx-auto space-y-3">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-xs font-semibold text-brand-mocha tracking-wider uppercase mb-1">
+<span class="">VISIT &amp; RESERVE</span>
+</div>
+<h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-espresso">
+Table Reservation &amp; Inquiries
+</h1>
+<p class="text-sm sm:text-base text-brand-mocha/80 font-normal">
+Reserve a table for your coffee tasting, meeting, or reach out to our roastery team.
+</p>
+</div>
+</section>
+<!-- Contact & Reservation Layout -->
+<section class="relative z-10 py-6" data-purpose="contact-content">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Roastery Contact Cards -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Location Card -->
+<div class="glass-card rounded-[32px] p-6 shadow-glass transition-all duration-300 hover:-translate-y-1 hover:bg-white/50">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso flex-shrink-0 shadow-sm">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M12 21c-4.5-4.5-8-8.5-8-12a8 8 0 1 1 16 0c0 3.5-3.5 7.5-8 12z"></path>
+<circle cx="12" cy="9" r="3"></circle>
+</svg>
+</div>
+<div class="space-y-1">
+<h3 class="font-serif text-lg font-bold text-brand-espresso">Our Roastery</h3>
+<p class="text-xs sm:text-sm text-brand-espresso/80 leading-relaxed font-normal">
+144 Artisan Lane, Roastery District<br>San Francisco, CA 94107
+</p>
+</div>
+</div>
+</div>
+<!-- Roasting & Cafe Hours Card -->
+<div class="glass-card rounded-[32px] p-6 shadow-glass transition-all duration-300 hover:-translate-y-1 hover:bg-white/50">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso flex-shrink-0 shadow-sm">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+</div>
+<div class="space-y-1 flex-1">
+<h3 class="font-serif text-lg font-bold text-brand-espresso">Brewing Hours</h3>
+<div class="space-y-1 pt-1 text-xs text-brand-espresso/80 font-normal">
+<div class="flex justify-between items-center">
+<span class="">Monday – Friday</span>
+<span class="font-semibold text-brand-espresso">7:00 AM – 7:00 PM</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="">Saturday – Sunday</span>
+<span class="font-semibold text-brand-espresso">8:00 AM – 8:00 PM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Direct Communication Card -->
+<div class="glass-card rounded-[32px] p-6 shadow-glass transition-all duration-300 hover:-translate-y-1 hover:bg-white/50">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full glass-pill flex items-center justify-center text-brand-espresso flex-shrink-0 shadow-sm">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+</svg>
+</div>
+<div class="space-y-1.5">
+<h3 class="font-serif text-lg font-bold text-brand-espresso">Get in Touch</h3>
+<p class="text-xs text-brand-espresso/80 font-normal">
+Direct Phone: <a class="font-semibold hover:underline text-brand-espresso" href="tel:4155552739">(415) 555-BREW</a>
+</p>
+<p class="text-xs text-brand-espresso/80 font-normal">
+Email: <a class="font-semibold hover:underline text-brand-espresso" href="mailto:contact@flavoredcoffee.com">contact@flavoredcoffee.com</a>
+</p>
+</div>
+</div>
+</div>
+<!-- Private Tasting & Cozy Corners Note -->
+<div class="glass-pill rounded-[28px] p-5 border border-white/80 shadow-sm space-y-2">
+<div class="flex items-center gap-2 text-brand-espresso font-semibold text-xs uppercase tracking-wider">
+<span class="">✦</span>
+<span class="">Private Tastings &amp; Cozy Corners</span>
+</div>
+<p class="text-xs text-brand-espresso/75 leading-relaxed font-normal">
+Looking for a secluded nook to write, hold team cupping sessions, or host intimate celebrations? Mention your requirements in the form and our head barista will prepare the setting.
+</p>
+</div>
+</div>
+<!-- Right Column: Glassmorphic Reservation & Inquiry Form -->
+<div class="lg:col-span-7">
+<div class="glass-card rounded-[36px] p-6 sm:p-10 shadow-glass relative">
+<div class="mb-6 space-y-1">
+<h3 class="font-serif text-2xl font-bold text-brand-espresso">Make a Reservation</h3>
+<p class="text-xs sm:text-sm text-brand-mocha/80 font-normal">Please fill out the form below. We will confirm your seating within 15 minutes.</p>
+</div>
+<form class="space-y-4" id="reservation-form" onsubmit="handleReservationSubmit(event)">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Full Name -->
+<div class="space-y-1.5">
+<label class="block text-[11px] font-semibold text-brand-espresso uppercase tracking-wider" for="res-name">Full Name</label>
+<input class="w-full px-4 py-3 rounded-2xl bg-white/70 border border-white/80 text-brand-espresso placeholder-stone-400 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-espresso/30 focus:bg-white transition-all shadow-sm" id="res-name" placeholder="Eleanor Vance" required="" type="text">
+</div>
+<!-- Email Address -->
+<div class="space-y-1.5">
+<label class="block text-[11px] font-semibold text-brand-espresso uppercase tracking-wider" for="res-email">Email Address</label>
+<input class="w-full px-4 py-3 rounded-2xl bg-white/70 border border-white/80 text-brand-espresso placeholder-stone-400 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-espresso/30 focus:bg-white transition-all shadow-sm" id="res-email" placeholder="eleanor@domain.com" required="" type="email">
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Phone Number -->
+<div class="space-y-1.5">
+<label class="block text-[11px] font-semibold text-brand-espresso uppercase tracking-wider" for="res-phone">Phone Number</label>
+<input class="w-full px-4 py-3 rounded-2xl bg-white/70 border border-white/80 text-brand-espresso placeholder-stone-400 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-espresso/30 focus:bg-white transition-all shadow-sm" id="res-phone" placeholder="(415) 000-0000" required="" type="tel">
+</div>
+<!-- Number of Guests -->
+<div class="space-y-1.5">
+<label class="block text-[11px] font-semibold text-brand-espresso uppercase tracking-wider" for="res-guests">Number of Guests</label>
+<select class="w-full px-4 py-3 rounded-2xl bg-white/70 border border-white/80 text-brand-espresso text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-espresso/30 focus:bg-white transition-all shadow-sm" id="res-guests">
+<option value="1">1 Guest · Espresso Bar</option>
+<option selected="" value="2">2 Guests · Cozy Table</option>
+<option value="3-4">3–4 Guests · Lounge Booth</option>
+<option value="5+">5+ Guests · Atelier Tasting Table</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Preferred Date -->
+<div class="space-y-1.5">
+<label class="block text-[11px] font-semibold text-brand-espresso uppercase tracking-wider" for="res-date">Preferred Date</label>
+<input class="w-full px-4 py-3 rounded-2xl bg-white/70 border border-white/80 text-brand-espresso text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-espresso/30 focus:bg-white transition-all shadow-sm" id="res-date" required="" type="date">
+</div>
+<!-- Preferred Time -->
+<div class="space-y-1.5">
+<label class="block text-[11px] font-semibold text-brand-espresso uppercase tracking-wider" for="res-time">Preferred Time</label>
+<select class="w-full px-4 py-3 rounded-2xl bg-white/70 border border-white/80 text-brand-espresso text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-espresso/30 focus:bg-white transition-all shadow-sm" id="res-time">
+<option value="08:00">08:00 AM - Morning Roast</option>
+<option value="09:30">09:30 AM - Breakfast Brew</option>
+<option value="11:00">11:00 AM - Late Morning Cupping</option>
+<option selected="" value="13:30">01:30 PM - Afternoon Pause</option>
+<option value="15:00">03:00 PM - Cold Brew &amp; Pastry</option>
+<option value="17:00">05:00 PM - Golden Hour Tasting</option>
+</select>
+</div>
+</div>
+<!-- Message / Notes -->
+<div class="space-y-1.5">
+<label class="block text-[11px] font-semibold text-brand-espresso uppercase tracking-wider" for="res-notes">Special Requests / Notes</label>
+<textarea class="w-full px-4 py-3 rounded-2xl bg-white/70 border border-white/80 text-brand-espresso placeholder-stone-400 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-espresso/30 focus:bg-white transition-all shadow-sm resize-none" id="res-notes" placeholder="Window seating preference, dietary requests, oat milk pairing, or celebration details..." rows="3"></textarea>
+</div>
+<!-- Confirmation Banner Placeholder -->
+<div class="hidden p-4 rounded-2xl bg-emerald-800/10 border border-emerald-600/30 text-emerald-950 text-xs leading-relaxed" id="reservation-confirmation">
+✓ Your table request has been received! Our roastery concierge has saved your spot and sent a confirmation SMS to your number.
+</div>
+<!-- Submit Button -->
+<div class="pt-2">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-9 py-3.5 rounded-full bg-brand-espresso text-white text-xs sm:text-sm font-semibold tracking-wide shadow-pill hover:bg-black hover:scale-[1.02] transition-all duration-300" id="res-submit-btn" type="submit">
+<span class="">Send Reservation Request</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+<line x1="5" x2="19" y1="12" y2="12"></line>
+<polyline points="12 5 19 12 12 19"></polyline>
+</svg>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact View Action Footer -->
+<section class="relative z-10 py-8 text-center border-t border-stone-300/40">
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-brand-espresso text-white text-xs sm:text-sm font-semibold tracking-wide hover:bg-black transition-all duration-300 shadow-pill hover:scale-105" onclick="navigateTo('menu')">
+<span class="">Browse The Coffee Menu →</span>
+</button>
+<button class="inline-flex items-center gap-2 px-8 py-3 rounded-full glass-pill text-brand-espresso text-xs sm:text-sm font-semibold hover:bg-white transition-all duration-300" onclick="navigateTo('home')">
+<span class="">Back to Home</span>
+</button>
+</div>
+</section>
+</div>
+<!-- ==================== END VIEW 4: CONTACT US VIEW ==================== -->
+<!-- BEGIN: MainFooter -->
+<footer class="relative z-20 pt-16 pb-6 border-t border-stone-300/50 text-brand-espresso" data-purpose="footer-navigation">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+<!-- Column 1: Brand -->
+<div class="lg:col-span-2 space-y-2">
+<div class="flex items-center gap-2">
+<span class="font-serif text-2xl font-bold tracking-tight text-brand-espresso">Flavored</span>
+<svg class="w-4 h-4 text-brand-dark" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+<path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+<path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+<line x1="6" x2="6" y1="2" y2="4"></line>
+<line x1="10" x2="10" y1="2" y2="4"></line>
+<line x1="14" x2="14" y1="2" y2="4"></line>
+</svg>
+</div>
+<p class="text-xs text-brand-mocha font-medium">Wake up to something special.</p>
+<!-- Subtle scattered coffee beans pattern representation in footer corner -->
+<div class="pt-4 flex items-center gap-1 opacity-70">
+<div class="w-2.5 h-3.5 rounded-full bg-brand-mocha/70 rotate-12"></div>
+<div class="w-2 h-3 rounded-full bg-brand-mocha/60 -rotate-45"></div>
+<div class="w-3 h-4 rounded-full bg-brand-mocha/80 rotate-45"></div>
+<div class="w-2 h-2.5 rounded-full bg-brand-mocha/50 rotate-90"></div>
+</div>
+</div>
+<!-- Column 2: Our Services -->
+<div class="space-y-3">
+<h4 class="font-serif font-bold text-sm text-brand-espresso">Our Services</h4>
+<ul class="space-y-2 text-xs text-brand-espresso/75">
+<li class=""><a class="hover:underline" href="#">Pricing</a></li>
+<li class=""><a class="hover:underline" href="#">Tracking</a></li>
+<li class=""><a class="hover:underline" href="#">Report a Bug</a></li>
+<li class=""><a class="hover:underline" href="#">Terms of Services</a></li>
+</ul>
+</div>
+<!-- Column 3: Our Company -->
+<div class="space-y-3">
+<h4 class="font-serif font-bold text-sm text-brand-espresso">Our Company</h4>
+<ul class="space-y-2 text-xs text-brand-espresso/75">
+<li class=""><button class="hover:underline text-left" onclick="navigateTo('about')">About Us</button></li>
+<li class=""><button class="hover:underline text-left" onclick="navigateTo('menu')">Our Beans</button></li>
+<li class=""><button class="hover:underline text-left" onclick="navigateTo('contact')">Table Reservation</button></li>
+<li class=""><a class="hover:underline" href="#">Careers</a></li>
+</ul>
+</div>
+<!-- Column 4: Address -->
+<div class="space-y-3">
+<h4 class="font-serif font-bold text-sm text-brand-espresso">Address</h4>
+<div class="space-y-1 text-xs text-brand-espresso/75 leading-relaxed">
+<p class="">144 Artisan Lane</p>
+<p class="">Roastery District</p>
+<p class="">San Francisco, CA</p>
+<p class="">(415) 555-BREW</p>
+</div>
+</div>
+</div>
+<!-- Copyright Note -->
+<div class="mt-12 pt-6 border-t border-stone-300/30 text-center text-xs text-brand-mocha/70">
+<p class="">© 2025 Flavored Coffee Co. All rights reserved.</p>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</div>
+</div>
+
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 pointer-events-none opacity-0" id="product-modal-container">
+<div class="absolute inset-0 bg-stone-900/40 backdrop-blur-md transition-opacity duration-300" id="modal-backdrop" onclick="closeProductModal()"></div>
+<div class="relative z-10 w-full max-w-lg bg-white/85 backdrop-blur-2xl border border-white/80 shadow-2xl rounded-[36px] p-6 sm:p-8 transform transition-all duration-300 flex flex-col gap-6 text-brand-espresso scale-95" id="modal-card">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-white/70 text-brand-mocha shadow-sm border border-white/80" id="modal-category">Artisanal Coffee</span>
+</div>
+<button aria-label="Close modal" class="w-9 h-9 rounded-full bg-white/60 hover:bg-white text-brand-espresso flex items-center justify-center transition-all shadow-sm" onclick="closeProductModal()">
+<span class="text-lg leading-none font-bold">×</span>
+</button>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-6">
+<div class="w-36 h-36 rounded-full overflow-hidden p-2 bg-white/90 shadow-md flex-shrink-0 border-2 border-white">
+<img alt="Americano" class="w-full h-full object-cover rounded-full" id="modal-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9vHC9lHDe2boaWOpRTc0eIQ66QwnUpz39pFyYW9JXD4AUrY0gO-LLy-8BZFmDO6_NOUhDfvGDpk-U3y1uJoSMwvf6Y60KJZtEZF4PW32crpqkQfctFkjVhrdWveFeP5jwWkZpeghIUjp3L9VBPS0r-WElDY8XWLCvWKqs6S8LTRd1eptT3HpGGVyqjVJS7CMYJLVGNtZOq8eFhygjmmp3zIoEs5mKwEeN3eXVuGCz3Qa2pdvEcPAIR1DlcHyEHJfqBA">
+</div>
+<div class="space-y-2 text-center sm:text-left flex-1">
+<h3 class="font-serif text-2xl font-bold text-brand-espresso" id="modal-title">Americano</h3>
+<p class="text-xs text-brand-mocha/80 leading-relaxed" id="modal-desc">Double shot espresso pulled over artisan mineral water, smooth and bold, 180 ml</p>
+<p class="text-sm font-semibold text-brand-espresso pt-1">Base: <span class="font-bold" id="modal-base-price">$2.50</span></p>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-semibold uppercase tracking-wider text-brand-mocha block" id="modal-option-label">Select Size</label>
+<div class="grid grid-cols-2 gap-3" id="modal-size-options">
+<button class="py-2.5 px-4 rounded-2xl border border-brand-espresso bg-brand-espresso text-white text-xs font-semibold flex items-center justify-between transition-all" id="size-opt-regular" onclick="selectModalSize('regular', 0)" type="button">
+<span class="" id="size-name-1">Regular</span>
+<span class="text-[10px] opacity-80" id="size-diff-1">Included</span>
+</button>
+<button class="py-2.5 px-4 rounded-2xl border border-stone-300/60 bg-white/70 text-brand-espresso text-xs font-semibold flex items-center justify-between hover:bg-white transition-all" id="size-opt-large" onclick="selectModalSize('large', 0.75)" type="button">
+<span class="" id="size-name-2">Large (+100ml)</span>
+<span class="text-[10px] text-brand-mocha" id="size-diff-2">+$0.75</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-stone-300/40">
+<div class="flex items-center gap-3 bg-white/70 p-1.5 rounded-full border border-white/80 shadow-sm">
+<button class="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-brand-espresso hover:bg-stone-100 transition-colors shadow-sm" onclick="updateModalQuantity(-1)">−</button>
+<span class="font-bold text-sm px-2" id="modal-qty">1</span>
+<button class="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-brand-espresso hover:bg-stone-100 transition-colors shadow-sm" onclick="updateModalQuantity(1)">+</button>
+</div>
+<button class="flex-1 ml-4 py-3.5 px-6 rounded-full bg-brand-espresso text-white text-xs sm:text-sm font-semibold tracking-wide shadow-pill hover:bg-black transition-all flex items-center justify-center gap-2 hover:scale-[1.02]" id="modal-add-btn" onclick="handleModalAddToCart()">
+<span class="">Add to Order •</span>
+<span class="" id="modal-total-price">$2.50</span>
+</button>
+</div>
+</div>
+</div>
+
+
+
+    <script src="./app.js" defer></script>
+</body></html>
