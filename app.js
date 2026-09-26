@@ -500,3 +500,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateFloatingNavbar();
 });
+
+/* Minimal animated chocolate cursor — desktop only */
+document.addEventListener('DOMContentLoaded', () => {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  document.getElementById('chocolate-cursor')?.remove();
+
+  const cursor = document.createElement('div');
+  cursor.id = 'chocolate-cursor';
+  cursor.innerHTML = '<span></span>';
+  document.body.appendChild(cursor);
+  document.body.classList.add('chocolate-cursor-active');
+
+  let targetX = -100;
+  let targetY = -100;
+  let currentX = -100;
+  let currentY = -100;
+
+  function animateCursor() {
+    currentX += (targetX - currentX) * 0.18;
+    currentY += (targetY - currentY) * 0.18;
+    cursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+
+  window.addEventListener('mousemove', (event) => {
+    targetX = event.clientX;
+    targetY = event.clientY;
+    cursor.classList.add('is-visible');
+
+    const interactiveElement = event.target.closest(
+      'a, button, input, textarea, select, [role="button"]'
+    );
+
+    cursor.classList.toggle('is-hover', Boolean(interactiveElement));
+  });
+
+  window.addEventListener('mousedown', () => {
+    cursor.classList.add('is-clicking');
+  });
+
+  window.addEventListener('mouseup', () => {
+    cursor.classList.remove('is-clicking');
+  });
+
+  document.addEventListener('mouseleave', () => {
+    cursor.classList.remove('is-visible');
+  });
+});
